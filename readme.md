@@ -1,0 +1,1 @@
+Code développer sur Visual Studio, Projet de type console .Net6
