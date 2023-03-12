@@ -1,0 +1,15 @@
+C:\Users\Guillaume\Desktop\BTS\github\Katas\HashFunction\NthRootV2\obj\Debug\net6.0\NthRootV2.csproj.AssemblyReference.cache
+C:\Users\Guillaume\Desktop\BTS\github\Katas\HashFunction\NthRootV2\obj\Debug\net6.0\NthRootV2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Guillaume\Desktop\BTS\github\Katas\HashFunction\NthRootV2\obj\Debug\net6.0\NthRootV2.AssemblyInfoInputs.cache
+C:\Users\Guillaume\Desktop\BTS\github\Katas\HashFunction\NthRootV2\obj\Debug\net6.0\NthRootV2.AssemblyInfo.cs
+C:\Users\Guillaume\Desktop\BTS\github\Katas\HashFunction\NthRootV2\obj\Debug\net6.0\NthRootV2.csproj.CoreCompileInputs.cache
+C:\Users\Guillaume\Desktop\BTS\github\Katas\HashFunction\NthRootV2\bin\Debug\net6.0\NthRootV2.exe
+C:\Users\Guillaume\Desktop\BTS\github\Katas\HashFunction\NthRootV2\bin\Debug\net6.0\NthRootV2.deps.json
+C:\Users\Guillaume\Desktop\BTS\github\Katas\HashFunction\NthRootV2\bin\Debug\net6.0\NthRootV2.runtimeconfig.json
+C:\Users\Guillaume\Desktop\BTS\github\Katas\HashFunction\NthRootV2\bin\Debug\net6.0\NthRootV2.dll
+C:\Users\Guillaume\Desktop\BTS\github\Katas\HashFunction\NthRootV2\bin\Debug\net6.0\NthRootV2.pdb
+C:\Users\Guillaume\Desktop\BTS\github\Katas\HashFunction\NthRootV2\obj\Debug\net6.0\NthRootV2.dll
+C:\Users\Guillaume\Desktop\BTS\github\Katas\HashFunction\NthRootV2\obj\Debug\net6.0\refint\NthRootV2.dll
+C:\Users\Guillaume\Desktop\BTS\github\Katas\HashFunction\NthRootV2\obj\Debug\net6.0\NthRootV2.pdb
+C:\Users\Guillaume\Desktop\BTS\github\Katas\HashFunction\NthRootV2\obj\Debug\net6.0\NthRootV2.genruntimeconfig.cache
+C:\Users\Guillaume\Desktop\BTS\github\Katas\HashFunction\NthRootV2\obj\Debug\net6.0\ref\NthRootV2.dll
