@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 class Program
 {
     static Random Randomizer = new Random(); // Instancie un objet de type Random pour générer des nombres aléatoires.
     static Dictionary<int, List<string>> hashGroups = new Dictionary<int, List<string>>(); // Initialise un dictionnaire qui stockera les groupes de chaînes de caractères ayant le même code de hachage.
     static int numChar, numStrings; // Initialise les variables qui détermineront la longueur des chaînes de caractères et le nombre de chaînes dans chaque groupe.
-
-
+    
     static void Main(string[] args)
     {
         Console.Write("Input number of char in string you want (integer type): "); // Invite l'utilisateur à saisir la longueur des chaînes de caractères.
@@ -29,6 +29,8 @@ class Program
     }
     static void HashStrings()
     {
+        Stopwatch timer = new Stopwatch();
+        timer.Start();
         try
         {
             while (true) // Boucle infinie pour générer et hacher des chaînes de caractères.
@@ -59,6 +61,9 @@ class Program
                         {
                             Console.WriteLine(StringInList);
                         }
+                        timer.Stop();
+                        TimeSpan timeTaken = timer.Elapsed;
+                        Console.WriteLine("Time taken for DVTraitement: " + timeTaken.ToString(@"m\:ss\.fff"));
                         return;
                     }
                 }

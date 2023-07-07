@@ -1,0 +1,21 @@
+﻿<Window x:Class="HashCodeWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HashCodeWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="600">
+    <Grid>
+        <Button x:Name="btn_HashCode" Content="HashCode" HorizontalAlignment="Left" Margin="80,84,0,0" VerticalAlignment="Top" Height="40" Width="150" Click="btn_HashCode_Click"/>
+        <Button Content="Find interation" HorizontalAlignment="Left" Margin="80,170,0,0" VerticalAlignment="Top" Height="40" Width="150"/>
+        <TextBox HorizontalAlignment="Left" Margin="345,40,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="205" Height="229"/>
+        <Grid x:Name="PopUp" Visibility="Hidden">
+            <Rectangle HorizontalAlignment="Center" Height="150" Stroke="Gray" VerticalAlignment="Center" Width="200" Fill="White"/>
+            <Button x:Name="btn_close" Content="X" HorizontalAlignment="Left" Margin="370,97,0,0" VerticalAlignment="Top" Background="#FFFD0000" Width="20" Foreground="White" Click="btn_close_Click"/>
+            <TextBox x:Name="tb_Hashage" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="0,181,0,0" PreviewTextInput="tb_Hashage_PreviewTextInput"/>
+            <TextBlock HorizontalAlignment="Center" Margin="0,122,0,0" TextWrapping="Wrap" Text="Nombre de chaînes de caractères avec le même code de hachage" VerticalAlignment="Top" Width="166"/>
+            <Button x:Name="btn_validate" Content="Valider" HorizontalAlignment="Center" Margin="0,209,0,0" VerticalAlignment="Top" Click="btn_validate_Click"/>
+        </Grid>
+    </Grid>
+</Window>

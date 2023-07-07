@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Guillaume\\Desktop\\BTS\\github\\Katas\\HashFunction\\HashFunction\\HashFunction.csproj": {}
+    "E:\\BTS\\github\\Katas\\HashFunction\\HashFunction\\HashFunction.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Guillaume\\Desktop\\BTS\\github\\Katas\\HashFunction\\HashFunction\\HashFunction.csproj": {
+    "E:\\BTS\\github\\Katas\\HashFunction\\HashFunction\\HashFunction.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Guillaume\\Desktop\\BTS\\github\\Katas\\HashFunction\\HashFunction\\HashFunction.csproj",
+        "projectUniqueName": "E:\\BTS\\github\\Katas\\HashFunction\\HashFunction\\HashFunction.csproj",
         "projectName": "HashFunction",
-        "projectPath": "C:\\Users\\Guillaume\\Desktop\\BTS\\github\\Katas\\HashFunction\\HashFunction\\HashFunction.csproj",
+        "projectPath": "E:\\BTS\\github\\Katas\\HashFunction\\HashFunction\\HashFunction.csproj",
         "packagesPath": "C:\\Users\\Guillaume\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Guillaume\\Desktop\\BTS\\github\\Katas\\HashFunction\\HashFunction\\obj\\",
+        "outputPath": "E:\\BTS\\github\\Katas\\HashFunction\\HashFunction\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -59,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
