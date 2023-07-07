@@ -8,8 +8,7 @@
         Title="MainWindow" Height="350" Width="600">
     <Grid>
         <Button x:Name="btn_HashCode" Content="HashCode" HorizontalAlignment="Left" Margin="80,84,0,0" VerticalAlignment="Top" Height="40" Width="150" Click="btn_HashCode_Click"/>
-        <Button Content="Find interation" HorizontalAlignment="Left" Margin="80,170,0,0" VerticalAlignment="Top" Height="40" Width="150"/>
-        <TextBox HorizontalAlignment="Left" Margin="345,40,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="205" Height="229"/>
+        <TextBox x:Name="tb_affichage" HorizontalAlignment="Left" Margin="345,40,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="205" Height="229"/>
         <Grid x:Name="PopUp" Visibility="Hidden">
             <Rectangle HorizontalAlignment="Center" Height="150" Stroke="Gray" VerticalAlignment="Center" Width="200" Fill="White"/>
             <Button x:Name="btn_close" Content="X" HorizontalAlignment="Left" Margin="370,97,0,0" VerticalAlignment="Top" Background="#FFFD0000" Width="20" Foreground="White" Click="btn_close_Click"/>
