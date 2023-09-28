@@ -1,0 +1,14 @@
+E:\BTS\github\Katas\eXaltTrainning\programme_poo\bin\Debug\net6.0\programme_poo.exe
+E:\BTS\github\Katas\eXaltTrainning\programme_poo\bin\Debug\net6.0\programme_poo.deps.json
+E:\BTS\github\Katas\eXaltTrainning\programme_poo\bin\Debug\net6.0\programme_poo.runtimeconfig.json
+E:\BTS\github\Katas\eXaltTrainning\programme_poo\bin\Debug\net6.0\programme_poo.dll
+E:\BTS\github\Katas\eXaltTrainning\programme_poo\bin\Debug\net6.0\programme_poo.pdb
+E:\BTS\github\Katas\eXaltTrainning\programme_poo\obj\Debug\net6.0\programme_poo.GeneratedMSBuildEditorConfig.editorconfig
+E:\BTS\github\Katas\eXaltTrainning\programme_poo\obj\Debug\net6.0\programme_poo.AssemblyInfoInputs.cache
+E:\BTS\github\Katas\eXaltTrainning\programme_poo\obj\Debug\net6.0\programme_poo.AssemblyInfo.cs
+E:\BTS\github\Katas\eXaltTrainning\programme_poo\obj\Debug\net6.0\programme_poo.csproj.CoreCompileInputs.cache
+E:\BTS\github\Katas\eXaltTrainning\programme_poo\obj\Debug\net6.0\programme_poo.dll
+E:\BTS\github\Katas\eXaltTrainning\programme_poo\obj\Debug\net6.0\refint\programme_poo.dll
+E:\BTS\github\Katas\eXaltTrainning\programme_poo\obj\Debug\net6.0\programme_poo.pdb
+E:\BTS\github\Katas\eXaltTrainning\programme_poo\obj\Debug\net6.0\programme_poo.genruntimeconfig.cache
+E:\BTS\github\Katas\eXaltTrainning\programme_poo\obj\Debug\net6.0\ref\programme_poo.dll

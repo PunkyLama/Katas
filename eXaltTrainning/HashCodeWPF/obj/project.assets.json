@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\BTS\\github\\Katas\\HashFunction\\HashCodeWPF\\HashCodeWPF.csproj",
+      "projectUniqueName": "E:\\BTS\\github\\Katas\\eXaltTrainning\\HashCodeWPF\\HashCodeWPF.csproj",
       "projectName": "HashCodeWPF",
-      "projectPath": "E:\\BTS\\github\\Katas\\HashFunction\\HashCodeWPF\\HashCodeWPF.csproj",
+      "projectPath": "E:\\BTS\\github\\Katas\\eXaltTrainning\\HashCodeWPF\\HashCodeWPF.csproj",
       "packagesPath": "C:\\Users\\Guillaume\\.nuget\\packages\\",
-      "outputPath": "E:\\BTS\\github\\Katas\\HashFunction\\HashCodeWPF\\obj\\",
+      "outputPath": "E:\\BTS\\github\\Katas\\eXaltTrainning\\HashCodeWPF\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

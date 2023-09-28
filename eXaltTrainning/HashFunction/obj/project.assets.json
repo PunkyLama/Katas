@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\BTS\\github\\Katas\\HashFunction\\HashFunction\\HashFunction.csproj",
+      "projectUniqueName": "E:\\BTS\\github\\Katas\\eXaltTrainning\\HashFunction\\HashFunction.csproj",
       "projectName": "HashFunction",
-      "projectPath": "E:\\BTS\\github\\Katas\\HashFunction\\HashFunction\\HashFunction.csproj",
+      "projectPath": "E:\\BTS\\github\\Katas\\eXaltTrainning\\HashFunction\\HashFunction.csproj",
       "packagesPath": "C:\\Users\\Guillaume\\.nuget\\packages\\",
-      "outputPath": "E:\\BTS\\github\\Katas\\HashFunction\\HashFunction\\obj\\",
+      "outputPath": "E:\\BTS\\github\\Katas\\eXaltTrainning\\HashFunction\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

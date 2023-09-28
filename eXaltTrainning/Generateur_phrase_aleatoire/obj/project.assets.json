@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\BTS\\github\\Katas\\HashFunction\\Generateur_phrase_aleatoire\\Generateur_phrase_aleatoire.csproj",
+      "projectUniqueName": "E:\\BTS\\github\\Katas\\eXaltTrainning\\Generateur_phrase_aleatoire\\Generateur_phrase_aleatoire.csproj",
       "projectName": "Generateur_phrase_aleatoire",
-      "projectPath": "E:\\BTS\\github\\Katas\\HashFunction\\Generateur_phrase_aleatoire\\Generateur_phrase_aleatoire.csproj",
+      "projectPath": "E:\\BTS\\github\\Katas\\eXaltTrainning\\Generateur_phrase_aleatoire\\Generateur_phrase_aleatoire.csproj",
       "packagesPath": "C:\\Users\\Guillaume\\.nuget\\packages\\",
-      "outputPath": "E:\\BTS\\github\\Katas\\HashFunction\\Generateur_phrase_aleatoire\\obj\\",
+      "outputPath": "E:\\BTS\\github\\Katas\\eXaltTrainning\\Generateur_phrase_aleatoire\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

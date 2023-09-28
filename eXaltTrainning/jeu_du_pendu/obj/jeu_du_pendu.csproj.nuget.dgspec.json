@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\BTS\\github\\Katas\\HashFunction\\jeu_du_pendu\\jeu_du_pendu.csproj": {}
+    "E:\\BTS\\github\\Katas\\eXaltTrainning\\jeu_du_pendu\\jeu_du_pendu.csproj": {}
   },
   "projects": {
-    "E:\\BTS\\github\\Katas\\HashFunction\\jeu_du_pendu\\jeu_du_pendu.csproj": {
+    "E:\\BTS\\github\\Katas\\eXaltTrainning\\jeu_du_pendu\\jeu_du_pendu.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\BTS\\github\\Katas\\HashFunction\\jeu_du_pendu\\jeu_du_pendu.csproj",
+        "projectUniqueName": "E:\\BTS\\github\\Katas\\eXaltTrainning\\jeu_du_pendu\\jeu_du_pendu.csproj",
         "projectName": "jeu_du_pendu",
-        "projectPath": "E:\\BTS\\github\\Katas\\HashFunction\\jeu_du_pendu\\jeu_du_pendu.csproj",
+        "projectPath": "E:\\BTS\\github\\Katas\\eXaltTrainning\\jeu_du_pendu\\jeu_du_pendu.csproj",
         "packagesPath": "C:\\Users\\Guillaume\\.nuget\\packages\\",
-        "outputPath": "E:\\BTS\\github\\Katas\\HashFunction\\jeu_du_pendu\\obj\\",
+        "outputPath": "E:\\BTS\\github\\Katas\\eXaltTrainning\\jeu_du_pendu\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
