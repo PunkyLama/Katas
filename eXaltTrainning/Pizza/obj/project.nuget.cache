@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Y+n9GasKA/u2I3EUFgIDqfH0fA4CtdoPlsi4Qn2Px1cuQghvg8I2+Kj8qFS7P3MPPhB+05n2wIptaRtMOhhj4A==",
+  "dgSpecHash": "iQRcRCQUWLlKKiqpy1o91Q2J15HyFhz8xL9JY7J752y3qRdFY/Zc9sLVRRy5upFkspnzZXB5R/UYZUTLEph9xA==",
   "success": true,
   "projectFilePath": "E:\\BTS\\github\\Katas\\eXaltTrainning\\Pizza\\Pizza.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Guillaume\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }
