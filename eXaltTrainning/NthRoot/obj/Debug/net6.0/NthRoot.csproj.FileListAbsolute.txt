@@ -13,3 +13,17 @@ C:\Users\Guillaume\Desktop\BTS\github\Katas\HashFunction\NthRoot\obj\Debug\net6.
 C:\Users\Guillaume\Desktop\BTS\github\Katas\HashFunction\NthRoot\obj\Debug\net6.0\NthRoot.pdb
 C:\Users\Guillaume\Desktop\BTS\github\Katas\HashFunction\NthRoot\obj\Debug\net6.0\NthRoot.genruntimeconfig.cache
 C:\Users\Guillaume\Desktop\BTS\github\Katas\HashFunction\NthRoot\obj\Debug\net6.0\ref\NthRoot.dll
+E:\BTS\github\Katas\eXaltTrainning\NthRoot\bin\Debug\net6.0\NthRoot.exe
+E:\BTS\github\Katas\eXaltTrainning\NthRoot\bin\Debug\net6.0\NthRoot.deps.json
+E:\BTS\github\Katas\eXaltTrainning\NthRoot\bin\Debug\net6.0\NthRoot.runtimeconfig.json
+E:\BTS\github\Katas\eXaltTrainning\NthRoot\bin\Debug\net6.0\NthRoot.dll
+E:\BTS\github\Katas\eXaltTrainning\NthRoot\bin\Debug\net6.0\NthRoot.pdb
+E:\BTS\github\Katas\eXaltTrainning\NthRoot\obj\Debug\net6.0\NthRoot.GeneratedMSBuildEditorConfig.editorconfig
+E:\BTS\github\Katas\eXaltTrainning\NthRoot\obj\Debug\net6.0\NthRoot.AssemblyInfoInputs.cache
+E:\BTS\github\Katas\eXaltTrainning\NthRoot\obj\Debug\net6.0\NthRoot.AssemblyInfo.cs
+E:\BTS\github\Katas\eXaltTrainning\NthRoot\obj\Debug\net6.0\NthRoot.csproj.CoreCompileInputs.cache
+E:\BTS\github\Katas\eXaltTrainning\NthRoot\obj\Debug\net6.0\NthRoot.dll
+E:\BTS\github\Katas\eXaltTrainning\NthRoot\obj\Debug\net6.0\refint\NthRoot.dll
+E:\BTS\github\Katas\eXaltTrainning\NthRoot\obj\Debug\net6.0\NthRoot.pdb
+E:\BTS\github\Katas\eXaltTrainning\NthRoot\obj\Debug\net6.0\NthRoot.genruntimeconfig.cache
+E:\BTS\github\Katas\eXaltTrainning\NthRoot\obj\Debug\net6.0\ref\NthRoot.dll

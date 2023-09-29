@@ -28,3 +28,17 @@ E:\BTS\github\Katas\HashFunction\NthRootV2\obj\Debug\net6.0\refint\NthRootV2.dll
 E:\BTS\github\Katas\HashFunction\NthRootV2\obj\Debug\net6.0\NthRootV2.pdb
 E:\BTS\github\Katas\HashFunction\NthRootV2\obj\Debug\net6.0\NthRootV2.genruntimeconfig.cache
 E:\BTS\github\Katas\HashFunction\NthRootV2\obj\Debug\net6.0\ref\NthRootV2.dll
+E:\BTS\github\Katas\eXaltTrainning\NthRootV2\bin\Debug\net6.0\NthRootV2.exe
+E:\BTS\github\Katas\eXaltTrainning\NthRootV2\bin\Debug\net6.0\NthRootV2.deps.json
+E:\BTS\github\Katas\eXaltTrainning\NthRootV2\bin\Debug\net6.0\NthRootV2.runtimeconfig.json
+E:\BTS\github\Katas\eXaltTrainning\NthRootV2\bin\Debug\net6.0\NthRootV2.dll
+E:\BTS\github\Katas\eXaltTrainning\NthRootV2\bin\Debug\net6.0\NthRootV2.pdb
+E:\BTS\github\Katas\eXaltTrainning\NthRootV2\obj\Debug\net6.0\NthRootV2.GeneratedMSBuildEditorConfig.editorconfig
+E:\BTS\github\Katas\eXaltTrainning\NthRootV2\obj\Debug\net6.0\NthRootV2.AssemblyInfoInputs.cache
+E:\BTS\github\Katas\eXaltTrainning\NthRootV2\obj\Debug\net6.0\NthRootV2.AssemblyInfo.cs
+E:\BTS\github\Katas\eXaltTrainning\NthRootV2\obj\Debug\net6.0\NthRootV2.csproj.CoreCompileInputs.cache
+E:\BTS\github\Katas\eXaltTrainning\NthRootV2\obj\Debug\net6.0\NthRootV2.dll
+E:\BTS\github\Katas\eXaltTrainning\NthRootV2\obj\Debug\net6.0\refint\NthRootV2.dll
+E:\BTS\github\Katas\eXaltTrainning\NthRootV2\obj\Debug\net6.0\NthRootV2.pdb
+E:\BTS\github\Katas\eXaltTrainning\NthRootV2\obj\Debug\net6.0\NthRootV2.genruntimeconfig.cache
+E:\BTS\github\Katas\eXaltTrainning\NthRootV2\obj\Debug\net6.0\ref\NthRootV2.dll

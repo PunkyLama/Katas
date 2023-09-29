@@ -13,3 +13,17 @@ C:\Users\Guillaume\Desktop\BTS\github\Katas\HashFunction\HashFunction\obj\Debug\
 C:\Users\Guillaume\Desktop\BTS\github\Katas\HashFunction\HashFunction\obj\Debug\net6.0\HashFunction.pdb
 C:\Users\Guillaume\Desktop\BTS\github\Katas\HashFunction\HashFunction\obj\Debug\net6.0\HashFunction.genruntimeconfig.cache
 C:\Users\Guillaume\Desktop\BTS\github\Katas\HashFunction\HashFunction\obj\Debug\net6.0\ref\HashFunction.dll
+E:\BTS\github\Katas\eXaltTrainning\HashFunction\bin\Debug\net6.0\HashFunction.exe
+E:\BTS\github\Katas\eXaltTrainning\HashFunction\bin\Debug\net6.0\HashFunction.deps.json
+E:\BTS\github\Katas\eXaltTrainning\HashFunction\bin\Debug\net6.0\HashFunction.runtimeconfig.json
+E:\BTS\github\Katas\eXaltTrainning\HashFunction\bin\Debug\net6.0\HashFunction.dll
+E:\BTS\github\Katas\eXaltTrainning\HashFunction\bin\Debug\net6.0\HashFunction.pdb
+E:\BTS\github\Katas\eXaltTrainning\HashFunction\obj\Debug\net6.0\HashFunction.GeneratedMSBuildEditorConfig.editorconfig
+E:\BTS\github\Katas\eXaltTrainning\HashFunction\obj\Debug\net6.0\HashFunction.AssemblyInfoInputs.cache
+E:\BTS\github\Katas\eXaltTrainning\HashFunction\obj\Debug\net6.0\HashFunction.AssemblyInfo.cs
+E:\BTS\github\Katas\eXaltTrainning\HashFunction\obj\Debug\net6.0\HashFunction.csproj.CoreCompileInputs.cache
+E:\BTS\github\Katas\eXaltTrainning\HashFunction\obj\Debug\net6.0\HashFunction.dll
+E:\BTS\github\Katas\eXaltTrainning\HashFunction\obj\Debug\net6.0\refint\HashFunction.dll
+E:\BTS\github\Katas\eXaltTrainning\HashFunction\obj\Debug\net6.0\HashFunction.pdb
+E:\BTS\github\Katas\eXaltTrainning\HashFunction\obj\Debug\net6.0\HashFunction.genruntimeconfig.cache
+E:\BTS\github\Katas\eXaltTrainning\HashFunction\obj\Debug\net6.0\ref\HashFunction.dll
