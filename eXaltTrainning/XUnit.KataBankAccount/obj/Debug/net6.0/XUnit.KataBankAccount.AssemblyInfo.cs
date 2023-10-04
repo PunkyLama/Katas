@@ -11,12 +11,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("BankAccountCore")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("XUnit.KataBankAccount")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("BankAccountCore")]
-[assembly: System.Reflection.AssemblyTitleAttribute("BankAccountCore")]
+[assembly: System.Reflection.AssemblyProductAttribute("XUnit.KataBankAccount")]
+[assembly: System.Reflection.AssemblyTitleAttribute("XUnit.KataBankAccount")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Généré par la classe MSBuild WriteCodeFragment.

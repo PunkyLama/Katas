@@ -1,21 +1,19 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace KataBankAccount.Models
 {
     public class BankAccount
     {
         [Key]
-        public int Id { get; set; }
+        public int BankAccountId { get; set; }
+        [Required]
         public string Name {  get; set; }
+        [Required]
         public float Balance { get; set; }
-        public List<History> TransactionHistory { get; set; }        
-    }
+        [ForeignKey("BankAccountId")]
+        public ICollection<Transaction>? TransactionHistory { get; set; }       
 
-
-    public class History
-    {
-        [Key]
-        public int Id { get; set; }
-        public string Description { get; set; }
     }
+    
 }

@@ -4,7 +4,7 @@ using MediatR;
 
 namespace KataBankAccount.Handlers
 {
-    public class WithdrawHandler : IRequestHandler<WithdrawCommand, int>
+    public class WithdrawHandler : IRequestHandler<WithdrawCommand, BankAccount>
     {
         private readonly IBankAccountRepository _bankAccountRepository;
 
@@ -13,7 +13,7 @@ namespace KataBankAccount.Handlers
             _bankAccountRepository = bankAccountRepository;
         }
 
-        public async Task<int> Handle(WithdrawCommand command, CancellationToken cancellationToken)
+        public async Task<BankAccount> Handle(WithdrawCommand command, CancellationToken cancellationToken)
         {
             var bankAccountDetails = await _bankAccountRepository.GetBankAccountByIdAsync(command.Id);
             if (bankAccountDetails == null)
@@ -21,7 +21,7 @@ namespace KataBankAccount.Handlers
                 return default;
             }
 
-            return await _bankAccountRepository.WithdrawAsync(bankAccountDetails.Id, command.amountToSubstract);
+            return await _bankAccountRepository.WithdrawAsync(bankAccountDetails.BankAccountId, command.amountToSubstract);
         }
     }
 }

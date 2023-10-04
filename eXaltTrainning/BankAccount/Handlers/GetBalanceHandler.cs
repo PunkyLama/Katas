@@ -22,7 +22,7 @@ namespace KataBankAccount.Handlers
                 return default;
             }
 
-            return await _bankAccountRepository.GetBalanceAsync(bankAccountDetails.Id);
+            return await _bankAccountRepository.GetBalanceAsync(bankAccountDetails.BankAccountId);
         }
     }
 }

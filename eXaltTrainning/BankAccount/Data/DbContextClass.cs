@@ -18,5 +18,6 @@ namespace KataBankAccount.Data
         }
 
         public DbSet<BankAccount> BankAccounts { get; set; }
+        //public DbSet<Transaction> Transactions { get; set; }
     }
 }

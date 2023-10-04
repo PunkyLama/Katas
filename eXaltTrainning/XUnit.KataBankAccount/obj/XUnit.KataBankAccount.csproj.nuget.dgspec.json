@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\BTS\\github\\Katas\\eXaltTrainning\\BankAccountCore\\BankAccountCore.csproj": {}
+    "E:\\BTS\\github\\Katas\\eXaltTrainning\\XUnit.KataBankAccount\\XUnit.KataBankAccount.csproj": {}
   },
   "projects": {
-    "E:\\BTS\\github\\Katas\\eXaltTrainning\\BankAccountCore\\BankAccountCore.csproj": {
+    "E:\\BTS\\github\\Katas\\eXaltTrainning\\XUnit.KataBankAccount\\XUnit.KataBankAccount.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\BTS\\github\\Katas\\eXaltTrainning\\BankAccountCore\\BankAccountCore.csproj",
-        "projectName": "BankAccountCore",
-        "projectPath": "E:\\BTS\\github\\Katas\\eXaltTrainning\\BankAccountCore\\BankAccountCore.csproj",
+        "projectUniqueName": "E:\\BTS\\github\\Katas\\eXaltTrainning\\XUnit.KataBankAccount\\XUnit.KataBankAccount.csproj",
+        "projectName": "XUnit.KataBankAccount",
+        "projectPath": "E:\\BTS\\github\\Katas\\eXaltTrainning\\XUnit.KataBankAccount\\XUnit.KataBankAccount.csproj",
         "packagesPath": "C:\\Users\\Guillaume\\.nuget\\packages\\",
-        "outputPath": "E:\\BTS\\github\\Katas\\eXaltTrainning\\BankAccountCore\\obj\\",
+        "outputPath": "E:\\BTS\\github\\Katas\\eXaltTrainning\\XUnit.KataBankAccount\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -43,6 +43,28 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.5.0, )"
+            },
+            "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.2.0, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.2, )"
+            },
+            "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.4.5, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

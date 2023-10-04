@@ -1,8 +1,9 @@
-﻿using MediatR;
+﻿using KataBankAccount.Models;
+using MediatR;
 
 namespace KataBankAccount.Commands
 {
-    public class WithdrawCommand : IRequest<int>
+    public class WithdrawCommand : IRequest<BankAccount>
     {
         public int Id { get; set; }
         public float amountToSubstract { get; set; }

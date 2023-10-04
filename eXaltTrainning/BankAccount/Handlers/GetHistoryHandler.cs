@@ -21,7 +21,7 @@ namespace KataBankAccount.Handlers
                 return default;
             }
 
-            return await _bankAccountRepository.GetHistoryAsync(bankAccountDetails.Id);
+            return await _bankAccountRepository.GetHistoryAsync(bankAccountDetails.BankAccountId);
         }
     }
 }

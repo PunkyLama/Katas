@@ -33,9 +33,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pizza", "Pizza\Pizza.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CQRSAndMediatRDemo", "CQRSAndMediatRDemo\CQRSAndMediatRDemo.csproj", "{737443EF-F411-469E-8494-B15ADA1899E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "programme_fichiers", "programme_fichiers\programme_fichiers.csproj", "{A20426AE-FA2B-4D9F-AA43-DE179BEC915E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "programme_fichiers", "programme_fichiers\programme_fichiers.csproj", "{A20426AE-FA2B-4D9F-AA43-DE179BEC915E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KataBankAccount", "BankAccount\KataBankAccount.csproj", "{1B45156C-CBE6-4EB0-9CCD-4F7F09648BFD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KataBankAccount", "BankAccount\KataBankAccount.csproj", "{1B45156C-CBE6-4EB0-9CCD-4F7F09648BFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnit.KataBankAccount", "XUnit.KataBankAccount\XUnit.KataBankAccount.csproj", "{77C8BDFF-6AF3-4B72-9363-21F943A19911}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -111,6 +113,10 @@ Global
 		{1B45156C-CBE6-4EB0-9CCD-4F7F09648BFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B45156C-CBE6-4EB0-9CCD-4F7F09648BFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B45156C-CBE6-4EB0-9CCD-4F7F09648BFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77C8BDFF-6AF3-4B72-9363-21F943A19911}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77C8BDFF-6AF3-4B72-9363-21F943A19911}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77C8BDFF-6AF3-4B72-9363-21F943A19911}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77C8BDFF-6AF3-4B72-9363-21F943A19911}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

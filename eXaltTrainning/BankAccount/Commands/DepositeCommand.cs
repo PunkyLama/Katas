@@ -1,8 +1,9 @@
-﻿using MediatR;
+﻿using KataBankAccount.Models;
+using MediatR;
 
 namespace KataBankAccount.Commands
 {
-    public class DepositeCommand : IRequest<int>
+    public class DepositeCommand : IRequest<BankAccount>
     {
         public int Id { get; set; }
         public float amountToAdd { get; set; }
