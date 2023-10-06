@@ -4,6 +4,7 @@ using MediatR;
 
 namespace KataBankAccount.Handlers
 {
+    //Domaine
     public class DepositeHandler : IRequestHandler<DepositeCommand, BankAccount>
     {
         private readonly IBankAccountRepository _bankAccountRepository;
