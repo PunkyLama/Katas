@@ -66,3 +66,4 @@ E:\BTS\github\Katas\eXaltTrainning\BankAccount\bin\Debug\net6.0\runtimes\win\lib
 E:\BTS\github\Katas\eXaltTrainning\BankAccount\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 E:\BTS\github\Katas\eXaltTrainning\BankAccount\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 E:\BTS\github\Katas\eXaltTrainning\BankAccount\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+E:\BTS\github\Katas\eXaltTrainning\BankAccount\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll

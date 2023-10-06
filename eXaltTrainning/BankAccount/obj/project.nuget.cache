@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "qOVxJwbfQmhe2S5tIkkQT0ESlLmyPwlUep9XFh51zEVFUSklvs0Oyh0UNufbny68DVD8nnqoi7fUvaZAAPt2tw==",
+  "dgSpecHash": "RWoaKAPo5zDQNT1KCQh2f8iGVltSEvbgztMjIFu+eUjAELeUA4k11e5tclGJRwiK4/iU+mBZlWfvk4JUzxTa6Q==",
   "success": true,
   "projectFilePath": "E:\\BTS\\github\\Katas\\eXaltTrainning\\BankAccount\\KataBankAccount.csproj",
   "expectedPackageFiles": [
@@ -14,6 +14,7 @@
     "C:\\Users\\Guillaume\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.8\\microsoft.entityframeworkcore.abstractions.6.0.8.nupkg.sha512",
     "C:\\Users\\Guillaume\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.8\\microsoft.entityframeworkcore.analyzers.6.0.8.nupkg.sha512",
     "C:\\Users\\Guillaume\\.nuget\\packages\\microsoft.entityframeworkcore.design\\6.0.8\\microsoft.entityframeworkcore.design.6.0.8.nupkg.sha512",
+    "C:\\Users\\Guillaume\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\6.0.8\\microsoft.entityframeworkcore.inmemory.6.0.8.nupkg.sha512",
     "C:\\Users\\Guillaume\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\6.0.8\\microsoft.entityframeworkcore.relational.6.0.8.nupkg.sha512",
     "C:\\Users\\Guillaume\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\6.0.8\\microsoft.entityframeworkcore.sqlserver.6.0.8.nupkg.sha512",
     "C:\\Users\\Guillaume\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\6.0.8\\microsoft.entityframeworkcore.tools.6.0.8.nupkg.sha512",

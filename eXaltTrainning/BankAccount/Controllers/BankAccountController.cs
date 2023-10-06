@@ -2,7 +2,6 @@
 using KataBankAccount.Models;
 using KataBankAccount.Queries;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
@@ -29,7 +28,7 @@ namespace KataBankAccount.Controllers
             return bankAccountDetails;
         }
 
-        [HttpGet("GetAccount/{Id}")]
+        [HttpGet("{Id}")]
         public async Task<BankAccount> GetBankAccountByIdAsync(int Id)
         {
             var bankAccountDetails = await _mediator.Send(new GetBankAccountByIdQuery() { Id = Id });
@@ -37,32 +36,36 @@ namespace KataBankAccount.Controllers
             return bankAccountDetails;
         }
 
-        [HttpGet("GetTransactionHistory/{Id}")]
+        [HttpGet("{Id}/TransactionsHistory")]
         public async Task<string> GetTransactionAsync([FromRoute] int Id)
         {
             var TransactionDetails = await _mediator.Send(new GetHistoryQuery() { Id = Id });
             return TransactionDetails;
         }
 
-        [HttpGet("GetBalance/{Id}")]
+        [HttpGet("{Id}/Balance")]
         public async Task<float> GetbalanceAsync([FromRoute] int Id)
         {
             var bankAccountDetails = await _mediator.Send(new GetBalanceQuery() { Id = Id });
             return bankAccountDetails;
         }
 
-        [HttpPut("Deposite/{Id}")]
+        [HttpPut("{Id}/Deposite")]
         public async Task<BankAccount> DepositeAsync([FromRoute] int Id, float amoutToAdd)
         {
             var bankAccountDetails = await _mediator.Send(new DepositeCommand(Id, amoutToAdd));
             return bankAccountDetails;
         }
 
-        [HttpPut("Withdraw/{Id}")]
-        public async Task<BankAccount> WithdrawAsync([FromRoute] int Id, float amountToSubstract)
+        [HttpPut("{Id}/Withdraw")]
+        public async Task<IActionResult> WithdrawAsync([FromRoute] int Id, float amountToSubstract)
         {
             var bankAccountDetails = await _mediator.Send(new WithdrawCommand(Id, amountToSubstract));
-            return bankAccountDetails;
+            if (bankAccountDetails == null)
+            {
+                return StatusCode(423, "Le solde du compte est insuffissant pour pour effectuer le retrait.");
+            }
+            return Ok(bankAccountDetails);
         }       
 
     }

@@ -7,8 +7,8 @@ namespace KataBankAccount.Repository
 {
     public class BankAccountRepository : IBankAccountRepository
     {
-        private readonly DbContextClass _dbContext;
-        private StringBuilder _history = new StringBuilder();
+        private readonly DbContextClass _dbContext;  
+        private TransactionRepository _transactionRepository = new TransactionRepository();
 
         public BankAccountRepository(DbContextClass dbContext)
         {
@@ -19,14 +19,16 @@ namespace KataBankAccount.Repository
         //UPDATE
         public async Task<BankAccount> DepositAsync(int id, float amountToAdd)
         {
+
             var entity = _dbContext.BankAccounts.Where(x => x.BankAccountId == id).Include(h => h.TransactionHistory).FirstOrDefaultAsync();
 
-            if (entity != null) 
+
+            if (entity != null)
             {
                 var OldBalance = entity.Result.Balance;
                 entity.Result.Balance += amountToAdd;
-                var addHistoric = AddHistory(2, entity, amountToAdd, OldBalance);
-                entity.Result.TransactionHistory.Add(addHistoric);
+                var addTransaction = _transactionRepository.AddTransaction(2, entity, amountToAdd, OldBalance);
+                entity.Result.TransactionHistory.Add(addTransaction);
 
             }
             await _dbContext.SaveChangesAsync();
@@ -35,16 +37,20 @@ namespace KataBankAccount.Repository
 
 
         //UPDATE
-        public async Task<BankAccount> WithdrawAsync(int id, float amountToSubtract)
+        public async Task<BankAccount?> WithdrawAsync(int id, float amountToSubtract)
         {
             var entity = _dbContext.BankAccounts.Where(x => x.BankAccountId == id).Include(h => h.TransactionHistory).FirstOrDefaultAsync();
 
             if (entity != null)
             {
                 var OldBalance = entity.Result.Balance;
+                if ((entity.Result.Balance - amountToSubtract) < 0) 
+                {
+                    return null;
+                }
                 entity.Result.Balance -= amountToSubtract;
-                var addHistoric = AddHistory(3, entity, amountToSubtract, OldBalance);
-                entity.Result.TransactionHistory.Add(addHistoric);
+                var addTransaction = _transactionRepository.AddTransaction(3, entity, amountToSubtract, OldBalance);
+                entity.Result.TransactionHistory.Add(addTransaction);
 
             }
             await _dbContext.SaveChangesAsync();
@@ -59,8 +65,8 @@ namespace KataBankAccount.Repository
 
             if (entity != null)
             {
-                var addHistoric = AddHistory(4);
-                entity.Result.TransactionHistory.Add(addHistoric);
+                var addTransaction = _transactionRepository.AddTransaction(4);
+                entity.Result.TransactionHistory.Add(addTransaction);
                 return entity.Result.Balance;
             }
             return 0f;
@@ -75,7 +81,7 @@ namespace KataBankAccount.Repository
 
             if (entity != null)
             {
-                foreach(var item in entity.Result.TransactionHistory)
+                foreach (var item in entity.Result.TransactionHistory)
                 {
                     sb.Append(item.Description.ToString() + "\n");
                 }
@@ -94,40 +100,15 @@ namespace KataBankAccount.Repository
         //POST
         public async Task<BankAccount> AddBankAccountAsync(AddBankAccount addbankAccount)
         {
-            var bankAccount = new BankAccount() { 
+            var bankAccount = new BankAccount()
+            {
                 Name = addbankAccount.Name,
                 Balance = addbankAccount.Balance,
-                TransactionHistory = new List<Transaction>() { AddHistory(1) }
+                TransactionHistory = new List<Transaction>() { _transactionRepository.AddTransaction(1) }
             };
             var result = _dbContext.BankAccounts.Add(bankAccount);
             await _dbContext.SaveChangesAsync();
             return result.Entity;
-        }
-
-        private Transaction AddHistory(int id, Task<BankAccount> entity = default, float amount = default, float balance = default)
-        {
-            switch (id)
-            {
-                case 1:
-                    _history.Append($"[{DateTime.Now}] The account has been created.");
-                    break;
-                case 2:
-                    _history.Append($"[{DateTime.Now}] Deposit of {amount}€, old amount : {balance}€, new amount : {entity.Result.Balance}€.");
-                    break;
-                case 3:
-                    _history.Append($"[{DateTime.Now}] Withdraw of {amount}€, old amount : {balance}€, new amount : {entity.Result.Balance}€.");
-                    break;
-                case 4:
-                    _history.Append($"[{DateTime.Now}] The account balance has been consulted.");
-                    break;
-            }
-
-            var historic = new Transaction()
-            {
-                Description = _history.ToString()
-            };
-            _history.Clear();
-            return historic;
         }
 
     }
