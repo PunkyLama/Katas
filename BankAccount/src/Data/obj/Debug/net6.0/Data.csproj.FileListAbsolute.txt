@@ -1,0 +1,10 @@
+E:\BTS\github\Katas\BankAccount\Data\obj\Debug\net6.0\Data.csproj.AssemblyReference.cache
+E:\BTS\github\Katas\BankAccount\Data\obj\Debug\net6.0\Data.GeneratedMSBuildEditorConfig.editorconfig
+E:\BTS\github\Katas\BankAccount\Data\obj\Debug\net6.0\Data.AssemblyInfoInputs.cache
+E:\BTS\github\Katas\BankAccount\Data\obj\Debug\net6.0\Data.AssemblyInfo.cs
+E:\BTS\github\Katas\BankAccount\Data\obj\Debug\net6.0\Data.csproj.CoreCompileInputs.cache
+E:\BTS\github\Katas\BankAccount\src\Data\obj\Debug\net6.0\Data.csproj.AssemblyReference.cache
+E:\BTS\github\Katas\BankAccount\src\Data\obj\Debug\net6.0\Data.GeneratedMSBuildEditorConfig.editorconfig
+E:\BTS\github\Katas\BankAccount\src\Data\obj\Debug\net6.0\Data.AssemblyInfoInputs.cache
+E:\BTS\github\Katas\BankAccount\src\Data\obj\Debug\net6.0\Data.AssemblyInfo.cs
+E:\BTS\github\Katas\BankAccount\src\Data\obj\Debug\net6.0\Data.csproj.CoreCompileInputs.cache
