@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "ABGsNi81aDaK0DKs+7GVR/OXOMpT+P47sLv1j6g4fTFPH4WkjB3C3h67edZk9g0v8SFriKmCJOBPLpJcxWEjDg==",
+  "dgSpecHash": "9n3JsC/vWDbCFsVzVD24bdryr4YM1BXeNObqZlaoQtng4aUcQx9RJG5DqU/wH32u7LdJTNI1oabKTtUFneiANQ==",
   "success": true,
   "projectFilePath": "E:\\BTS\\github\\Katas\\BankAccount\\src\\Domain\\Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Guillaume\\.nuget\\packages\\mediatr\\12.1.1\\mediatr.12.1.1.nupkg.sha512",
+    "C:\\Users\\Guillaume\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\Guillaume\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

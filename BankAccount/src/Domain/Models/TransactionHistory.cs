@@ -1,16 +1,20 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace Domain.Models
+﻿namespace Domain.Models
 {
     public class TransactionHistory
     {
-        [Key]
+        public TransactionHistory() { }
+        public TransactionHistory(DateTime dateTime, Operation operation, TransactionStatus transactionStatus) 
+        { 
+            Date = dateTime;
+            Operation = operation;
+            TransactionStatus = transactionStatus;
+        
+        }
         public int Id { get; set; }
         public DateTime Date { get; set; }
-        public string Description { get; set; }
-        public Account Account { get; set; }
-        [ForeignKey(nameof(Account))]
+        public Operation Operation { get; set; }
+        public TransactionStatus TransactionStatus { get; set; }
+        //public Account Account { get; set; }
         public int AccountId { get; set; }
     }
 }

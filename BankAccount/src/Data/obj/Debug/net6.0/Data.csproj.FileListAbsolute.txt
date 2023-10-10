@@ -8,3 +8,13 @@ E:\BTS\github\Katas\BankAccount\src\Data\obj\Debug\net6.0\Data.GeneratedMSBuildE
 E:\BTS\github\Katas\BankAccount\src\Data\obj\Debug\net6.0\Data.AssemblyInfoInputs.cache
 E:\BTS\github\Katas\BankAccount\src\Data\obj\Debug\net6.0\Data.AssemblyInfo.cs
 E:\BTS\github\Katas\BankAccount\src\Data\obj\Debug\net6.0\Data.csproj.CoreCompileInputs.cache
+E:\BTS\github\Katas\BankAccount\src\Data\bin\Debug\net6.0\Data.deps.json
+E:\BTS\github\Katas\BankAccount\src\Data\bin\Debug\net6.0\Data.dll
+E:\BTS\github\Katas\BankAccount\src\Data\bin\Debug\net6.0\Data.pdb
+E:\BTS\github\Katas\BankAccount\src\Data\bin\Debug\net6.0\Domain.dll
+E:\BTS\github\Katas\BankAccount\src\Data\bin\Debug\net6.0\Domain.pdb
+E:\BTS\github\Katas\BankAccount\src\Data\obj\Debug\net6.0\Data.csproj.CopyComplete
+E:\BTS\github\Katas\BankAccount\src\Data\obj\Debug\net6.0\Data.dll
+E:\BTS\github\Katas\BankAccount\src\Data\obj\Debug\net6.0\refint\Data.dll
+E:\BTS\github\Katas\BankAccount\src\Data\obj\Debug\net6.0\Data.pdb
+E:\BTS\github\Katas\BankAccount\src\Data\obj\Debug\net6.0\ref\Data.dll
