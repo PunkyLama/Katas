@@ -2,8 +2,9 @@ using Domain.Models;
 
 namespace Domain.Tests
 {
-    public class GlobalInMemory
+    public class GlobalInMemory : IAccountPersistencePort
     {     
+        //Faire hasmap pas dbcontext Implemente IAccountPersiPort
         public DbContextOptions<DbContextBank> _options { get; set; }
         public GlobalInMemory() 
         {
@@ -25,6 +26,16 @@ namespace Domain.Tests
                 context.Accounts.Add(account);
                 context.SaveChanges();
             }
+        }
+
+        public Task<Account> GetAccountByIdAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task SaveAccount()
+        {
+            throw new NotImplementedException();
         }
     }
 }

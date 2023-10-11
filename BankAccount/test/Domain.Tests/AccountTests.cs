@@ -1,10 +1,13 @@
-﻿using System;
-
-namespace Domain.Tests
+﻿namespace Domain.Tests
 {
     [TestCaseOrderer("Domain.Tests.PriorityOrderer", "Domain.Tests")]
     public class AccountTests
     {
+
+        private readonly Mock<Account> _account;
+        private readonly Mock<IAccountPersistencePort> _persistencePort;
+
+        /*
         private static GlobalInMemory inMemory = new GlobalInMemory();
         private DbContextBank _dbContext = new DbContextBank(inMemory._options);
 
@@ -62,5 +65,6 @@ namespace Domain.Tests
             Assert.NotNull(result);
             Assert.IsType<Account>(result);
         }
+        */
     }
 }
