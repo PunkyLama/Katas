@@ -2028,20 +2028,6 @@
           "build/netcoreapp3.1/xunit.runner.visualstudio.props": {}
         }
       },
-      "Data/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Domain": "1.0.0",
-          "Microsoft.EntityFrameworkCore": "7.0.11"
-        },
-        "compile": {
-          "bin/placeholder/Data.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Data.dll": {}
-        }
-      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -2059,8 +2045,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Data": "1.0.0",
-          "Domain": "1.0.0"
+          "Domain": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "7.0.11"
         },
         "compile": {
           "bin/placeholder/Infrastructure.dll": {}
@@ -6316,11 +6302,6 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "Data/1.0.0": {
-      "type": "project",
-      "path": "../../src/Data/Data.csproj",
-      "msbuildProject": "../../src/Data/Data.csproj"
-    },
     "Domain/1.0.0": {
       "type": "project",
       "path": "../../src/Domain/Domain.csproj",
@@ -6334,7 +6315,6 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Data >= 1.0.0",
       "Domain >= 1.0.0",
       "Infrastructure >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 7.0.11",
@@ -6378,9 +6358,6 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "E:\\BTS\\github\\Katas\\BankAccount\\src\\Data\\Data.csproj": {
-              "projectPath": "E:\\BTS\\github\\Katas\\BankAccount\\src\\Data\\Data.csproj"
-            },
             "E:\\BTS\\github\\Katas\\BankAccount\\src\\Domain\\Domain.csproj": {
               "projectPath": "E:\\BTS\\github\\Katas\\BankAccount\\src\\Domain\\Domain.csproj"
             },

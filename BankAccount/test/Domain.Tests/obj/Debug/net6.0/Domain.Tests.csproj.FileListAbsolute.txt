@@ -118,7 +118,5 @@ E:\BTS\github\Katas\BankAccount\test\Domain.Tests\bin\Debug\net6.0\Moq.dll
 E:\BTS\github\Katas\BankAccount\test\Domain.Tests\bin\Debug\net6.0\System.Diagnostics.EventLog.dll
 E:\BTS\github\Katas\BankAccount\test\Domain.Tests\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Diagnostics.EventLog.Messages.dll
 E:\BTS\github\Katas\BankAccount\test\Domain.Tests\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Diagnostics.EventLog.dll
-E:\BTS\github\Katas\BankAccount\test\Domain.Tests\bin\Debug\net6.0\Data.dll
 E:\BTS\github\Katas\BankAccount\test\Domain.Tests\bin\Debug\net6.0\Infrastructure.dll
-E:\BTS\github\Katas\BankAccount\test\Domain.Tests\bin\Debug\net6.0\Data.pdb
 E:\BTS\github\Katas\BankAccount\test\Domain.Tests\bin\Debug\net6.0\Infrastructure.pdb

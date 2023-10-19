@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "dTLs/EUjXElSCM06dfZ3Gc0DCvY9pi+gJTtpiOlr2TI2JRtgliQSN0vmMdD0rXP2s2AI3BMUIDPV5uQVHXTrMg==",
+  "dgSpecHash": "k+koynkzrirfwdDv90cD6Bzlhio4cSjvQ3Zoev49rH0HhU5OZMv65aEc/bfl28aEau2kqMT/b6i6n/vdtSZReA==",
   "success": true,
   "projectFilePath": "E:\\BTS\\github\\Katas\\BankAccount\\test\\Domain.Tests\\Domain.Tests.csproj",
   "expectedPackageFiles": [

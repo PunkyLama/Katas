@@ -1,70 +1,66 @@
-﻿namespace Domain.Tests
+﻿using Domain.Adapters;
+
+namespace Domain.Tests
 {
     [TestCaseOrderer("Domain.Tests.PriorityOrderer", "Domain.Tests")]
     public class AccountTests
     {
+        public IAccountPersistencePort InitializeData()
+        {
+            var account = new Account
+            {
+                Id = 1,
+                Balance = 500, // Initial balance
+                TransactionHistories = new List<TransactionHistory>()
+            };
 
-        private readonly Mock<Account> _account;
-        private readonly Mock<IAccountPersistencePort> _persistencePort;
+            var persistencePortMock = new Mock<IAccountPersistencePort>();
+            persistencePortMock.Setup(p => p.GetAccountByIdAsync(1)).ReturnsAsync(account);
 
-        /*
-        private static GlobalInMemory inMemory = new GlobalInMemory();
-        private DbContextBank _dbContext = new DbContextBank(inMemory._options);
-
-        [Theory, Order(1)]
-        [InlineData(100, 200)]
-        [InlineData(94.5, 294.5)]
-        public async Task DepositByIdAsync_ShouldDepositAmountToAccount(float amount, float expected)
-        {   
-            // Arrange
-            var account = new AccountAdapter(_dbContext);
-            // Act
-            var result = await account.DepositByIdAsync(1, amount);
-            // Assert
-            Assert.NotNull(result);
-            Assert.IsType<Account>(result);
-            Assert.Equal(expected, result.Balance);            
+            return persistencePortMock.Object;
         }
 
-        [Theory, Order(2)]
-        [InlineData(94.5, 200)]        
-        [InlineData(1000, 200)]
-        public async Task WithdrawByIdAsync_ShouldWithdrawAmountToAccount(float amount, float expected)
+        [Fact]
+        public async Task DepositByIdAsync_ShouldIncreaseBalanceAndAddTransaction()
         {
             // Arrange
-            var account = new AccountAdapter(_dbContext);
+
+            var accountId = 1;
+            var amountToDeposit = 100;
+
+            var adapter = new DomainAccoutAdapter(InitializeData());
+
             // Act
-            var result = await account.WithdrawByIdAsync(1, amount);
+            var result = await adapter.DepositByIdAsync(accountId, amountToDeposit);
+            var TransactionList = result.TransactionHistories.ToList();
+
             // Assert
-            Assert.NotNull(result);
-            Assert.IsType<Account>(result);
-            Assert.Equal(expected, result.Balance);
+            Assert.Equal(accountId, result.Id);
+            Assert.Equal(600, result.Balance); // Expected balance after deposit
+            Assert.Single(result.TransactionHistories); // One transaction added
+            Assert.Equal(Operation.Deposit, TransactionList[0].Operation);
+            Assert.Equal(TransactionStatus.Approuved, TransactionList[0].TransactionStatus);
         }
 
-        [Fact , Order(3)]
-        public async Task GetTransactionHistories_ShouldReturnTransactionList()
+        [Fact]
+        public async Task WithdrawByIdAsync_ShouldDecreaseBalanceAndAddTransaction()
         {
             // Arrange
-            var account = new AccountAdapter(_dbContext);
-            // Act
-            var result = await account.GetStatementByIdAsync(1);
-            // Assert
-            Assert.NotNull(result);
-            Assert.IsType<List<TransactionHistory>>(result);
-            Assert.Equal(4, result.Count());
-        }
+            var accountId = 1;
+            var amountToWithdraw = 50;
 
-        [Fact , Order(4)]
-        public async Task GetAccountById_ShouldReturnAccount()
-        {
-            // Arrange
-            var account = new AccountAdapter(_dbContext);
+            var adapter = new DomainAccoutAdapter(InitializeData());
+
             // Act
-            var result = await account.GetAccountByIdAsync(1);
-            //Assert
-            Assert.NotNull(result);
-            Assert.IsType<Account>(result);
+            var result = await adapter.WithdrawByIdAsync(accountId, amountToWithdraw);
+            var TransactionList = result.TransactionHistories.ToList();
+
+            // Assert
+            Assert.Equal(accountId, result.Id);
+            Assert.Equal(450, result.Balance); // Expected balance after withdrawal
+            Assert.Single(result.TransactionHistories); // One transaction added
+            Assert.Equal(Operation.Withdraw, TransactionList[0].Operation);
+            Assert.Equal(TransactionStatus.Approuved, TransactionList[0].TransactionStatus);
         }
-        */
     }
 }
