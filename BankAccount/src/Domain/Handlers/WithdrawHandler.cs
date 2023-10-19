@@ -4,29 +4,16 @@ namespace Domain.Handlers
 {
     public class WithdrawHandler : IRequestHandler<WithdrawCommand, Account>
     {
-        private readonly IAccountPersistencePort _persistencePort;
+        private readonly IAccountPort _IAccountPort;
 
-        public WithdrawHandler(IAccountPersistencePort persistencePort)
+        public WithdrawHandler(IAccountPort IAccountPort)
         {
-            _persistencePort = persistencePort;
+            _IAccountPort = IAccountPort;
         }
         //Retrouner transactionStatus
         public async Task<Account> Handle(WithdrawCommand request, CancellationToken cancellationToken)
         {
-            var account = await _persistencePort.GetAccountByIdAsync(request.Id);
-            TransactionHistory transaction;
-            if ((account.Balance - request.Amount) < 0)
-            {
-                transaction = new TransactionHistory(DateTime.Now, Operation.Withdraw, TransactionStatus.Rejected);
-            }
-            else
-            {
-                account.Balance -= request.Amount;
-                transaction = new TransactionHistory(DateTime.Now, Operation.Withdraw, TransactionStatus.Approuved);
-            }
-            account.TransactionHistories.Add(transaction);
-            await _persistencePort.SaveAccount();
-            return account;
+            return await _IAccountPort.WithdrawByIdAsync(request.Id, request.Amount);
         }
     }
 }

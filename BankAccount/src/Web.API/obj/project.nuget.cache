@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "f2PrO9KR7JjKLp0GPqHTBZR6MBoi4rYFbNm3R1IYX8pLXYgFGSpEwVMmJhmZsgjKcWrl5UtbBJ0uLxtDV4a3TA==",
+  "dgSpecHash": "Mgb+8M8kiI2YBt3V23QwtaFas4BI6ZhypkV6j4siG9TObARdyB6cdXnVoizZ4wl/PY0mAqJuMJBitOkFj5mRJQ==",
   "success": true,
   "projectFilePath": "E:\\BTS\\github\\Katas\\BankAccount\\src\\Web.API\\Web.API.csproj",
   "expectedPackageFiles": [

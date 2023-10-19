@@ -1,14 +1,15 @@
-﻿using Infrastructure.Models;
+﻿using Domain.Models;
+using Infrastructure.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Infrastructure.Data
+namespace Infrastructure.Services
 {
     public class DbContextBank : DbContext
     {
         public DbContextBank() : base() { }
         public DbContextBank(DbContextOptions<DbContextBank> options) : base(options) { }
 
-        public DbSet<Account> Accounts { get; set; }
-        public DbSet<TransactionHistory> TransactionHistories { get; set; }
+        public DbSet<AccountEntity> Accounts { get; set; }
+        public DbSet<TransactionHistoryEntity> TransactionHistories { get; set; }
     }
 }

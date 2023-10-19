@@ -1,24 +1,29 @@
-﻿using Data;
-using Domain.Models;
+﻿using Domain.Models;
 using Domain.Ports.Driven;
+using Infrastructure.Services;
+using Infrastructure.Mapper;
 using Microsoft.EntityFrameworkCore;
 
-namespace Infrastructure
+namespace Infrastructure.Adapters
 {
-    public class AccountAdapter : IAccountPersistencePort
+    public class InfrastructureAccountAdapter : IAccountPersistencePort
     {
         public readonly DbContextBank _dbContext;
-        public AccountAdapter(DbContextBank dbContext)
+        private AccountMapper mapper = new AccountMapper();
+        public InfrastructureAccountAdapter(DbContextBank dbContext)
         {
             _dbContext = dbContext;
         }
 
-
-        // Faire Mapper entre domaine et infra puis WEBAPI
         public async Task<Account> GetAccountByIdAsync(int id)
         {
             var account = await _dbContext.Accounts.Where(x => x.Id == id).Include(h => h.TransactionHistories).FirstOrDefaultAsync();
-            return account;
+            if(account == null)
+            {
+                return default;
+            }
+            var domainAccount = mapper.MapFrom(account);
+            return domainAccount;
         }
         public async Task SaveAccount()
         {

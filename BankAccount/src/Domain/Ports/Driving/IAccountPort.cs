@@ -1,6 +1,4 @@
-﻿using Domain.Models;
-
-namespace Domain.Ports.Driving
+﻿namespace Domain.Ports.Driving
 {
     public interface IAccountPort
     {

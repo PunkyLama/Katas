@@ -32,11 +32,9 @@ E:\BTS\github\Katas\BankAccount\src\Web.API\bin\Debug\net6.0\Microsoft.OpenApi.d
 E:\BTS\github\Katas\BankAccount\src\Web.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 E:\BTS\github\Katas\BankAccount\src\Web.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 E:\BTS\github\Katas\BankAccount\src\Web.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-E:\BTS\github\Katas\BankAccount\src\Web.API\bin\Debug\net6.0\Data.dll
 E:\BTS\github\Katas\BankAccount\src\Web.API\bin\Debug\net6.0\Domain.dll
 E:\BTS\github\Katas\BankAccount\src\Web.API\bin\Debug\net6.0\Infrastructure.dll
 E:\BTS\github\Katas\BankAccount\src\Web.API\bin\Debug\net6.0\Domain.pdb
-E:\BTS\github\Katas\BankAccount\src\Web.API\bin\Debug\net6.0\Data.pdb
 E:\BTS\github\Katas\BankAccount\src\Web.API\bin\Debug\net6.0\Infrastructure.pdb
 E:\BTS\github\Katas\BankAccount\src\Web.API\obj\Debug\net6.0\staticwebassets\msbuild.Web.API.Microsoft.AspNetCore.StaticWebAssets.props
 E:\BTS\github\Katas\BankAccount\src\Web.API\obj\Debug\net6.0\staticwebassets\msbuild.build.Web.API.props

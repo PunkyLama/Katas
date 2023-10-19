@@ -2,20 +2,16 @@
 {
     public class GetHistoryHandler : IRequestHandler<GetHistoryQuery, ICollection<TransactionHistory>>
     {
-        private readonly IAccountPersistencePort _persistencePort;
+        private readonly IAccountPort _IAccountPort;
 
-        public GetHistoryHandler(IAccountPersistencePort persistencePort)
+        public GetHistoryHandler(IAccountPort IAccountPort)
         {
-            _persistencePort = persistencePort;
+            _IAccountPort = IAccountPort;
         }
+
         public async Task<ICollection<TransactionHistory>> Handle(GetHistoryQuery request, CancellationToken cancellationToken)
         {
-            var account = await _persistencePort.GetAccountByIdAsync(request.Id);
-            if (account == null)
-            {
-                return default;
-            }
-            return account.TransactionHistories;
+            return await _IAccountPort.GetStatementByIdAsync(request.Id);
         }
     }
 }

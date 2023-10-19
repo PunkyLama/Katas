@@ -1,6 +1,12 @@
-using Data;
+using Domain.Adapters;
+using Domain.Mappers;
+using Domain.Models;
+using Domain.Ports.Driven;
 using Domain.Ports.Driving;
-using Infrastructure;
+using Infrastructure.Adapters;
+using Infrastructure.Entities;
+using Infrastructure.Mapper;
+using Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using System.Text.Json.Serialization;
@@ -19,13 +25,17 @@ namespace Web.API
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
             services.AddDbContext<DbContextBank>(options =>
                 options.UseInMemoryDatabase(databaseName: "BankAccount"));
-            services.AddScoped<IAccountPort, AccountAdapter>();
+
+            //services.AddScoped<IMapper<AccountEntity, Account>, AccountMapper>();
+
+            services.AddScoped<IAccountPort, DomainAccoutAdapter>();
+            services.AddScoped<IAccountPersistencePort, InfrastructureAccountAdapter>();
+
             services.AddAuthorization();
             services.AddControllers();
             services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
-
         }
         public void Configure(WebApplication app)
         {

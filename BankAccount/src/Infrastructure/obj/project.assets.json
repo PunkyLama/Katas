@@ -247,20 +247,6 @@
           "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
-      "Data/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Domain": "1.0.0",
-          "Microsoft.EntityFrameworkCore": "7.0.11"
-        },
-        "compile": {
-          "bin/placeholder/Data.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Data.dll": {}
-        }
-      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -642,11 +628,6 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Data/1.0.0": {
-      "type": "project",
-      "path": "../Data/Data.csproj",
-      "msbuildProject": "../Data/Data.csproj"
-    },
     "Domain/1.0.0": {
       "type": "project",
       "path": "../Domain/Domain.csproj",
@@ -655,8 +636,8 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Data >= 1.0.0",
-      "Domain >= 1.0.0"
+      "Domain >= 1.0.0",
+      "Microsoft.EntityFrameworkCore >= 7.0.11"
     ]
   },
   "packageFolders": {
@@ -691,9 +672,6 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "E:\\BTS\\github\\Katas\\BankAccount\\src\\Data\\Data.csproj": {
-              "projectPath": "E:\\BTS\\github\\Katas\\BankAccount\\src\\Data\\Data.csproj"
-            },
             "E:\\BTS\\github\\Katas\\BankAccount\\src\\Domain\\Domain.csproj": {
               "projectPath": "E:\\BTS\\github\\Katas\\BankAccount\\src\\Domain\\Domain.csproj"
             }
@@ -709,6 +687,12 @@
     "frameworks": {
       "net6.0": {
         "targetAlias": "net6.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[7.0.11, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
