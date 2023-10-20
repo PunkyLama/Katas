@@ -1,11 +1,4 @@
-﻿using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Domain.Adapters
+﻿namespace Domain.Adapters
 {
     public class DomainAccoutAdapter : IAccountPort
     {
@@ -19,10 +12,18 @@ namespace Domain.Adapters
         public async Task<Account> DepositByIdAsync(int id, float amount)
         {
             var account = await _persistencePort.GetAccountByIdAsync(id);
-            account.Balance += amount;
-            TransactionHistory transaction = new TransactionHistory(DateTime.Now, Operation.Deposit, TransactionStatus.Approuved);
+            TransactionHistory transaction;
+            if (amount <= 0)
+            {
+                transaction = new TransactionHistory(account.Id, DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"), Operation.Deposit, TransactionStatus.Rejected);
+            }
+            else
+            {
+                account.Balance += amount;
+                transaction = new TransactionHistory(account.Id, DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"), Operation.Deposit, TransactionStatus.Approuved);
+            }
             account.TransactionHistories.Add(transaction);
-            await _persistencePort.SaveAccount();
+            await _persistencePort.SaveAccount(account);
             return account;
         }
 
@@ -42,15 +43,15 @@ namespace Domain.Adapters
             TransactionHistory transaction;
             if ((account.Balance - amount) < 0)
             {
-                transaction = new TransactionHistory(DateTime.Now, Operation.Withdraw, TransactionStatus.Rejected);
+                transaction = new TransactionHistory(account.Id, DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"), Operation.Withdraw, TransactionStatus.Rejected);
             }
             else
             {
                 account.Balance -= amount;
-                transaction = new TransactionHistory(DateTime.Now, Operation.Withdraw, TransactionStatus.Approuved);
+                transaction = new TransactionHistory(account.Id, DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"), Operation.Withdraw, TransactionStatus.Approuved);
             }
             account.TransactionHistories.Add(transaction);
-            await _persistencePort.SaveAccount();
+            await _persistencePort.SaveAccount(account);
             return account;
         }
     }

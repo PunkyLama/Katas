@@ -38,8 +38,8 @@ namespace Domain.Tests
             Assert.Equal(accountId, result.Id);
             Assert.Equal(600, result.Balance); // Expected balance after deposit
             Assert.Single(result.TransactionHistories); // One transaction added
-            Assert.Equal(Operation.Deposit, TransactionList[0].Operation);
-            Assert.Equal(TransactionStatus.Approuved, TransactionList[0].TransactionStatus);
+            Assert.Equal("Deposit", TransactionList[0].OperationString);
+            Assert.Equal("Approuved", TransactionList[0].TransactionStatusString);
         }
 
         [Fact]
@@ -59,8 +59,8 @@ namespace Domain.Tests
             Assert.Equal(accountId, result.Id);
             Assert.Equal(450, result.Balance); // Expected balance after withdrawal
             Assert.Single(result.TransactionHistories); // One transaction added
-            Assert.Equal(Operation.Withdraw, TransactionList[0].Operation);
-            Assert.Equal(TransactionStatus.Approuved, TransactionList[0].TransactionStatus);
+            Assert.Equal("Withdraw", TransactionList[0].OperationString);
+            Assert.Equal("Approuved", TransactionList[0].TransactionStatusString);
         }
     }
 }

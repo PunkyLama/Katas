@@ -43,12 +43,6 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "dependencies": {
-            "MediatR": {
-              "target": "Package",
-              "version": "[12.1.1, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -115,7 +109,17 @@
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.11, )"
+              "version": "[7.0.12, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.12, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.12, )"
             }
           },
           "imports": [
@@ -185,14 +189,6 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[7.0.11, )"
-            },
-            "Microsoft.EntityFrameworkCore.InMemory": {
-              "target": "Package",
-              "version": "[7.0.11, )"
-            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[17.7.1, )"

@@ -8,7 +8,6 @@ using Infrastructure.Entities;
 using Infrastructure.Mapper;
 using Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection;
 using System.Text.Json.Serialization;
 
 namespace Web.API
@@ -22,11 +21,17 @@ namespace Web.API
         public IConfigurationRoot Configuration { get; }
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+            services.AddRazorPages();
             services.AddDbContext<DbContextBank>(options =>
-                options.UseInMemoryDatabase(databaseName: "BankAccount"));
+            {
+                //options.UseInMemoryDatabase("Bank"));
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+                //options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+            });           
 
-            //services.AddScoped<IMapper<AccountEntity, Account>, AccountMapper>();
+            services.AddScoped<DbContextBank>();
+
+            services.AddScoped<IMapper<AccountEntity, Account>, AccountMapper>();
 
             services.AddScoped<IAccountPort, DomainAccoutAdapter>();
             services.AddScoped<IAccountPersistencePort, InfrastructureAccountAdapter>();
@@ -36,6 +41,15 @@ namespace Web.API
             services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
+
+            /*
+            var serviceProvider = services.BuildServiceProvider();
+            var dbContext = serviceProvider.GetRequiredService<DbContextBank>();
+            DbContextBankInitializer.InitializeData(dbContext);
+            */
+            
+
+
         }
         public void Configure(WebApplication app)
         {
@@ -47,9 +61,18 @@ namespace Web.API
 
             app.UseHttpsRedirection();
 
+            app.UseRouting();
+
             app.UseAuthorization();
 
-            app.MapControllers();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "api",
+                    pattern: "{controller}/{action}/{id?}"
+                    );
+                endpoints.MapRazorPages();
+            });
         }
     }
 

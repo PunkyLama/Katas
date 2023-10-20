@@ -13,3 +13,5 @@ E:\BTS\github\Katas\BankAccount\src\Infrastructure\obj\Debug\net6.0\Infrastructu
 E:\BTS\github\Katas\BankAccount\src\Infrastructure\obj\Debug\net6.0\refint\Infrastructure.dll
 E:\BTS\github\Katas\BankAccount\src\Infrastructure\obj\Debug\net6.0\Infrastructure.pdb
 E:\BTS\github\Katas\BankAccount\src\Infrastructure\obj\Debug\net6.0\ref\Infrastructure.dll
+E:\BTS\github\Katas\BankAccount\src\Infrastructure\bin\Debug\net6.0\Infrastructure.runtimeconfig.json
+E:\BTS\github\Katas\BankAccount\src\Infrastructure\obj\Debug\net6.0\Infrastructure.genruntimeconfig.cache
