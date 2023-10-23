@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\BTS\\github\\Katas\\BankAccount\\test\\Infrastructure.Test\\Infrastructure.Test.csproj": {}
+    "D:\\GitHub - WorkFile\\Katas\\BankAccount\\test\\Infrastructure.Test\\Infrastructure.Test.csproj": {}
   },
   "projects": {
-    "E:\\BTS\\github\\Katas\\BankAccount\\src\\Domain\\Domain.csproj": {
+    "D:\\GitHub - WorkFile\\Katas\\BankAccount\\src\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\BTS\\github\\Katas\\BankAccount\\src\\Domain\\Domain.csproj",
+        "projectUniqueName": "D:\\GitHub - WorkFile\\Katas\\BankAccount\\src\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "E:\\BTS\\github\\Katas\\BankAccount\\src\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\Guillaume\\.nuget\\packages\\",
-        "outputPath": "E:\\BTS\\github\\Katas\\BankAccount\\src\\Domain\\obj\\",
+        "projectPath": "D:\\GitHub - WorkFile\\Katas\\BankAccount\\src\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\glr95\\.nuget\\packages\\",
+        "outputPath": "D:\\GitHub - WorkFile\\Katas\\BankAccount\\src\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Guillaume\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\glr95\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -59,24 +60,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\BTS\\github\\Katas\\BankAccount\\src\\Infrastructure\\Infrastructure.csproj": {
+    "D:\\GitHub - WorkFile\\Katas\\BankAccount\\src\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\BTS\\github\\Katas\\BankAccount\\src\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "D:\\GitHub - WorkFile\\Katas\\BankAccount\\src\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "E:\\BTS\\github\\Katas\\BankAccount\\src\\Infrastructure\\Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\Guillaume\\.nuget\\packages\\",
-        "outputPath": "E:\\BTS\\github\\Katas\\BankAccount\\src\\Infrastructure\\obj\\",
+        "projectPath": "D:\\GitHub - WorkFile\\Katas\\BankAccount\\src\\Infrastructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\glr95\\.nuget\\packages\\",
+        "outputPath": "D:\\GitHub - WorkFile\\Katas\\BankAccount\\src\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Guillaume\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\glr95\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -85,14 +86,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "E:\\BTS\\github\\Katas\\BankAccount\\src\\Domain\\Domain.csproj": {
-                "projectPath": "E:\\BTS\\github\\Katas\\BankAccount\\src\\Domain\\Domain.csproj"
+              "D:\\GitHub - WorkFile\\Katas\\BankAccount\\src\\Domain\\Domain.csproj": {
+                "projectPath": "D:\\GitHub - WorkFile\\Katas\\BankAccount\\src\\Domain\\Domain.csproj"
               }
             }
           }
@@ -138,24 +140,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\BTS\\github\\Katas\\BankAccount\\test\\Infrastructure.Test\\Infrastructure.Test.csproj": {
+    "D:\\GitHub - WorkFile\\Katas\\BankAccount\\test\\Infrastructure.Test\\Infrastructure.Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\BTS\\github\\Katas\\BankAccount\\test\\Infrastructure.Test\\Infrastructure.Test.csproj",
+        "projectUniqueName": "D:\\GitHub - WorkFile\\Katas\\BankAccount\\test\\Infrastructure.Test\\Infrastructure.Test.csproj",
         "projectName": "Infrastructure.Test",
-        "projectPath": "E:\\BTS\\github\\Katas\\BankAccount\\test\\Infrastructure.Test\\Infrastructure.Test.csproj",
-        "packagesPath": "C:\\Users\\Guillaume\\.nuget\\packages\\",
-        "outputPath": "E:\\BTS\\github\\Katas\\BankAccount\\test\\Infrastructure.Test\\obj\\",
+        "projectPath": "D:\\GitHub - WorkFile\\Katas\\BankAccount\\test\\Infrastructure.Test\\Infrastructure.Test.csproj",
+        "packagesPath": "C:\\Users\\glr95\\.nuget\\packages\\",
+        "outputPath": "D:\\GitHub - WorkFile\\Katas\\BankAccount\\test\\Infrastructure.Test\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Guillaume\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\glr95\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -164,17 +166,18 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "E:\\BTS\\github\\Katas\\BankAccount\\src\\Domain\\Domain.csproj": {
-                "projectPath": "E:\\BTS\\github\\Katas\\BankAccount\\src\\Domain\\Domain.csproj"
+              "D:\\GitHub - WorkFile\\Katas\\BankAccount\\src\\Domain\\Domain.csproj": {
+                "projectPath": "D:\\GitHub - WorkFile\\Katas\\BankAccount\\src\\Domain\\Domain.csproj"
               },
-              "E:\\BTS\\github\\Katas\\BankAccount\\src\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "E:\\BTS\\github\\Katas\\BankAccount\\src\\Infrastructure\\Infrastructure.csproj"
+              "D:\\GitHub - WorkFile\\Katas\\BankAccount\\src\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "D:\\GitHub - WorkFile\\Katas\\BankAccount\\src\\Infrastructure\\Infrastructure.csproj"
               }
             }
           }
@@ -230,7 +233,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

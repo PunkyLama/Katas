@@ -10,7 +10,9 @@ namespace Domain.Models
             AccountId = accountId;
             Date = dateTime;
             OperationString = GetOperationString(operation);
+            Operation = operation;
             TransactionStatusString = GetTransactionStatusString(transactionStatus);
+            TransactionStatus = transactionStatus;
         
         }
         public int Id { get; set; }

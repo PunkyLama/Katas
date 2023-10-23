@@ -7,8 +7,6 @@ namespace Infrastructure.Entities
         [EnumMember(Value = "Deposit")]
         Deposit = 0,
         [EnumMember(Value = "Withdraw")]
-        Withdraw = 1,
-        [EnumMember(Value = "Creation")]
-        Creation = 2
+        Withdraw = 1
     }
 }

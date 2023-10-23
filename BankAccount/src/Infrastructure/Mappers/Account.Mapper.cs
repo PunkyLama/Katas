@@ -43,13 +43,18 @@ namespace Infrastructure.Mapper
 
         public TransactionHistory MapFrom(TransactionHistoryEntity input)
         {
+            var operation = operationMapper.MapFrom(input.Operation);
+            var transaction = transactionMapper.MapFrom(input.TransactionStatus);
+
             return new TransactionHistory
             {
                 AccountId = input.AccountId,
                 Id = input.Id,
                 Date = input.Date,
                 OperationString = input.Operation.ToString(),
-                TransactionStatusString = input.TransactionStatus.ToString()
+                Operation = operation,
+                TransactionStatusString = input.TransactionStatus.ToString(),
+                TransactionStatus = transaction
             };
         }
 

@@ -9,7 +9,6 @@ namespace Domain.Models
     public enum Operation
     {
         Deposit = 0,
-        Withdraw = 1,
-        Creation = 2
+        Withdraw = 1
     }
 }
