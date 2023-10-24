@@ -34,6 +34,9 @@ namespace Infrastructure.Migrations
                     Date = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Operation = table.Column<int>(type: "int", nullable: false),
                     TransactionStatus = table.Column<int>(type: "int", nullable: false),
+                    Amount = table.Column<float>(type: "real", nullable: false),
+                    OldBalance = table.Column<float>(type: "real", nullable: false),
+                    NewBalance = table.Column<float>(type: "real", nullable: true),
                     AccountId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>

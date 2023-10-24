@@ -1,5 +1,7 @@
-﻿using Domain.Ports.Driving;
+﻿using Domain.Models;
+using Domain.Ports.Driving;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 
 namespace Web.API
 {
@@ -15,9 +17,14 @@ namespace Web.API
         }
 
         [HttpPost("{id}/deposit")]
-        public async Task<IActionResult> Deposit([FromRoute] int id, float amount)
+        public async Task<IActionResult> Deposit([FromRoute] int id, [Required] float amount)
         {
             var account = await _accountPort.DepositByIdAsync(id, amount);
+
+            if(account == null)
+            {
+                return NotFound(new { Message = "Account not found." });
+            }
 
             // Vérifie si l'opération a été rejetée
             if (account.TransactionHistories.Last().TransactionStatusString == "Rejected")
@@ -33,13 +40,33 @@ namespace Web.API
         public async Task<IActionResult> GetStatement([FromRoute] int id)
         {
             var transactions = await _accountPort.GetStatementByIdAsync(id);
+            if (transactions == null)
+            {
+                return NotFound(new { Message = "Account not found." });
+            }
             return Ok(transactions);
         }
 
+        [HttpGet("{id}/balance")]
+        public async Task<IActionResult> GetBalance([FromRoute] int id)
+        {
+            var balance = await _accountPort.GetBalanceAsync(id);
+            if (balance == null)
+            {
+                return NotFound(new { Message = "Account not found." });
+            }
+            return Ok(balance);
+        }
+
         [HttpPost("{id}/withdraw")]
-        public async Task<IActionResult> Withdraw([FromRoute] int id, float amount)
+        public async Task<IActionResult> Withdraw([FromRoute] int id, [Required] float amount)
         {
             var account = await _accountPort.WithdrawByIdAsync(id, amount);
+
+            if (account == null)
+            {
+                return NotFound(new { Message = "Account not found."});
+            }
 
             // Vérifie si l'opération a été rejetée
             if (account.TransactionHistories.Last().TransactionStatusString == "Rejected")

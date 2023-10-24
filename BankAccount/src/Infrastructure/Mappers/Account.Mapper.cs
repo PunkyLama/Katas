@@ -38,8 +38,8 @@ namespace Infrastructure.Mapper
 
     public class TransactionMapper : IMapper<TransactionHistoryEntity, TransactionHistory>
     {
-        private OperationMapper operationMapper = new OperationMapper();
-        private TransactionHistoryMapper transactionMapper = new TransactionHistoryMapper();
+        private readonly OperationMapper operationMapper = new OperationMapper();
+        private readonly TransactionHistoryMapper transactionMapper = new TransactionHistoryMapper();
 
         public TransactionHistory MapFrom(TransactionHistoryEntity input)
         {
@@ -54,7 +54,10 @@ namespace Infrastructure.Mapper
                 OperationString = input.Operation.ToString(),
                 Operation = operation,
                 TransactionStatusString = input.TransactionStatus.ToString(),
-                TransactionStatus = transaction
+                TransactionStatus = transaction,
+                Amount= input.Amount,
+                OldBalance = input.OldBalance,
+                NewBalance= input.NewBalance,
             };
         }
 
@@ -69,7 +72,10 @@ namespace Infrastructure.Mapper
                 Id = output.Id,
                 Date = output.Date,
                 Operation = operation,
-                TransactionStatus = transaction
+                TransactionStatus = transaction,
+                Amount = output.Amount,
+                OldBalance = output.OldBalance,
+                NewBalance = output.NewBalance,
             };
         }
     }

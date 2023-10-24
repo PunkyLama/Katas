@@ -3,6 +3,7 @@ using Infrastructure.Entities;
 using Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 using Moq;
+using Xunit;
 
 namespace Infrastructure.Test
 {

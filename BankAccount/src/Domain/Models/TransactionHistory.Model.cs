@@ -5,7 +5,20 @@ namespace Domain.Models
     public class TransactionHistory
     {
         public TransactionHistory() { }
-        public TransactionHistory(int accountId, string dateTime, Operation operation, TransactionStatus transactionStatus) 
+
+        /// <summary>
+        /// TransactionHistory constructor
+        /// </summary>
+        /// <param name="accountId"> Account Id </param>
+        /// <param name="dateTime"> Date of the transaction </param>
+        /// <param name="operation"> Operation type </param>
+        /// <param name="transactionStatus"> Status type </param>
+        /// <param name="amount"> Amount of the transaction </param>
+        /// <param name="oldBalance"> Old balance of the account </param>
+        /// <param name="newBalance"> New balance of the account (Optional) </param>
+        public TransactionHistory(int accountId, string dateTime, 
+            Operation operation, TransactionStatus transactionStatus, 
+            float amount, float oldBalance, float? newBalance = null) 
         { 
             AccountId = accountId;
             Date = dateTime;
@@ -13,6 +26,9 @@ namespace Domain.Models
             Operation = operation;
             TransactionStatusString = GetTransactionStatusString(transactionStatus);
             TransactionStatus = transactionStatus;
+            Amount = amount;
+            OldBalance = oldBalance;
+            NewBalance = newBalance;
         
         }
         public int Id { get; set; }
@@ -23,6 +39,10 @@ namespace Domain.Models
         public TransactionStatus TransactionStatus { get; set; }
         public string OperationString { get; set; }
         public string TransactionStatusString { get; set; }
+        public float Amount { get; set; }
+        public float OldBalance { get; set; }
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public float? NewBalance { get; set; }
         public int AccountId { get; set; }
 
 
@@ -51,7 +71,5 @@ namespace Domain.Models
                     throw new ArgumentOutOfRangeException(nameof(transactionStatus));
             }
         }
-
-
     }
 }

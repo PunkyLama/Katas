@@ -13,18 +13,33 @@
         {
             var account = await _persistencePort.GetAccountByIdAsync(id);
             TransactionHistory transaction;
+            if (account == null)
+            {
+                return default;
+            }
             if (amount <= 0)
             {
-                transaction = new TransactionHistory(account.Id, DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"), Operation.Deposit, TransactionStatus.Rejected);
+                transaction = new TransactionHistory(account.Id, DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"), Operation.Deposit, TransactionStatus.Rejected, amount, account.Balance);
             }
             else
             {
+                var oldBalance = account.Balance;
                 account.Balance += amount;
-                transaction = new TransactionHistory(account.Id, DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"), Operation.Deposit, TransactionStatus.Approuved);
+                transaction = new TransactionHistory(account.Id, DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"), Operation.Deposit, TransactionStatus.Approuved, amount, oldBalance, account.Balance);
             }
             account.TransactionHistories.Add(transaction);
             await _persistencePort.SaveAccount(account);
             return account;
+        }
+
+        public async Task<float> GetBalanceAsync(int id)
+        {
+            var account = await _persistencePort.GetAccountByIdAsync(id);
+            if (account == null)
+            {
+                return default;
+            }
+            return account.Balance;
         }
 
         public async Task<ICollection<TransactionHistory>> GetStatementByIdAsync(int id)
@@ -41,14 +56,19 @@
         {
             var account = await _persistencePort.GetAccountByIdAsync(id);
             TransactionHistory transaction;
-            if ((account.Balance - amount) < 0)
+            if (account == null)
             {
-                transaction = new TransactionHistory(account.Id, DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"), Operation.Withdraw, TransactionStatus.Rejected);
+                return default;
+            }
+            if ((account.Balance - amount) < 0 || amount <= 0)
+            {
+                transaction = new TransactionHistory(account.Id, DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"), Operation.Withdraw, TransactionStatus.Rejected, amount, account.Balance);
             }
             else
             {
+                var oldBalance = account.Balance;
                 account.Balance -= amount;
-                transaction = new TransactionHistory(account.Id, DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"), Operation.Withdraw, TransactionStatus.Approuved);
+                transaction = new TransactionHistory(account.Id, DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"), Operation.Withdraw, TransactionStatus.Approuved, amount, oldBalance, account.Balance);
             }
             account.TransactionHistories.Add(transaction);
             await _persistencePort.SaveAccount(account);

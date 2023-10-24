@@ -1,4 +1,8 @@
 ﻿using Domain.Adapters;
+using Domain.Models;
+using Domain.Ports.Driven;
+using Moq;
+using Xunit;
 
 namespace Domain.Tests
 {
@@ -10,7 +14,7 @@ namespace Domain.Tests
             var account = new Account
             {
                 Id = 1,
-                Balance = 500, // Initial balance
+                Balance = 100, // Initial balance
                 TransactionHistories = new List<TransactionHistory>()
             };
 
@@ -21,7 +25,7 @@ namespace Domain.Tests
         }
 
         [Fact]
-        public async Task DepositByIdAsync_ShouldIncreaseBalanceAndAddTransaction()
+        public async Task DepositByIdAsync_WithPositiveAmount_ShouldIncreaseBalanceAndAddTransaction()
         {
             // Arrange
 
@@ -32,18 +36,35 @@ namespace Domain.Tests
 
             // Act
             var result = await adapter.DepositByIdAsync(accountId, amountToDeposit);
-            var TransactionList = result.TransactionHistories.ToList();
 
             // Assert
-            Assert.Equal(accountId, result.Id);
-            Assert.Equal(600, result.Balance); // Expected balance after deposit
+            Assert.Equal(200, result.Balance); // Expected balance after deposit
             Assert.Single(result.TransactionHistories); // One transaction added
-            Assert.Equal("Deposit", TransactionList[0].OperationString);
-            Assert.Equal("Approuved", TransactionList[0].TransactionStatusString);
+            Assert.Equal(Operation.Deposit, result.TransactionHistories[0].Operation);
+            Assert.Equal(TransactionStatus.Approuved, result.TransactionHistories[0].TransactionStatus);
         }
 
         [Fact]
-        public async Task WithdrawByIdAsync_ShouldDecreaseBalanceAndAddTransaction()
+        public async Task DepositByIdAsync_WithNegativeAmount_ShouldNotChangeBalanceAndAddRejectedTransaction()
+        {
+            // Arrange
+            var accountId = 1;
+            var amountToDeposit = -50;
+
+            var adapter = new DomainAccoutAdapter(InitializeData());
+
+            // Act
+            var result = await adapter.DepositByIdAsync(accountId, amountToDeposit);
+
+            // Assert
+            Assert.Equal(100, result.Balance);
+            Assert.Single(result.TransactionHistories);
+            Assert.Equal(Operation.Deposit, result.TransactionHistories[0].Operation);
+            Assert.Equal(TransactionStatus.Rejected, result.TransactionHistories[0].TransactionStatus);
+        }
+
+        [Fact]
+        public async Task WithdrawByIdAsync_WithValidAmount_ShouldDecreaseBalanceAndAddTransaction()
         {
             // Arrange
             var accountId = 1;
@@ -53,14 +74,31 @@ namespace Domain.Tests
 
             // Act
             var result = await adapter.WithdrawByIdAsync(accountId, amountToWithdraw);
-            var TransactionList = result.TransactionHistories.ToList();
 
             // Assert
-            Assert.Equal(accountId, result.Id);
-            Assert.Equal(450, result.Balance); // Expected balance after withdrawal
-            Assert.Single(result.TransactionHistories); // One transaction added
-            Assert.Equal("Withdraw", TransactionList[0].OperationString);
-            Assert.Equal("Approuved", TransactionList[0].TransactionStatusString);
+            Assert.Equal(50, result.Balance);
+            Assert.Single(result.TransactionHistories);
+            Assert.Equal(Operation.Withdraw, result.TransactionHistories[0].Operation);
+            Assert.Equal(TransactionStatus.Approuved, result.TransactionHistories[0].TransactionStatus);
+        }
+
+        [Fact]
+        public async Task WithdrawByIdAsync_WithInvalidAmount_ShouldNotChangeBalanceAndAddRejectedTransaction()
+        {
+            // Arrange
+            var accountId = 1;
+            var amountToWithdraw = 200;
+
+            var adapter = new DomainAccoutAdapter(InitializeData());
+
+            // Act
+            var result = await adapter.WithdrawByIdAsync(accountId, amountToWithdraw);
+
+            // Assert
+            Assert.Equal(100, result.Balance);
+            Assert.Single(result.TransactionHistories);
+            Assert.Equal(Operation.Withdraw, result.TransactionHistories[0].Operation);
+            Assert.Equal(TransactionStatus.Rejected, result.TransactionHistories[0].TransactionStatus);
         }
     }
 }
