@@ -3386,23 +3386,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\glr95\\.nuget\\packages\\": {},
+    "C:\\Users\\Guillaume\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GitHub - WorkFile\\Katas\\BankAccount\\src\\Web.API\\Web.API.csproj",
+      "projectUniqueName": "E:\\BTS\\github\\Katas\\BankAccount\\src\\Web.API\\Web.API.csproj",
       "projectName": "Web.API",
-      "projectPath": "D:\\GitHub - WorkFile\\Katas\\BankAccount\\src\\Web.API\\Web.API.csproj",
-      "packagesPath": "C:\\Users\\glr95\\.nuget\\packages\\",
-      "outputPath": "D:\\GitHub - WorkFile\\Katas\\BankAccount\\src\\Web.API\\obj\\",
+      "projectPath": "E:\\BTS\\github\\Katas\\BankAccount\\src\\Web.API\\Web.API.csproj",
+      "packagesPath": "C:\\Users\\Guillaume\\.nuget\\packages\\",
+      "outputPath": "E:\\BTS\\github\\Katas\\BankAccount\\src\\Web.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\glr95\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Guillaume\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3411,18 +3411,17 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\GitHub - WorkFile\\Katas\\BankAccount\\src\\Domain\\Domain.csproj": {
-              "projectPath": "D:\\GitHub - WorkFile\\Katas\\BankAccount\\src\\Domain\\Domain.csproj"
+            "E:\\BTS\\github\\Katas\\BankAccount\\src\\Domain\\Domain.csproj": {
+              "projectPath": "E:\\BTS\\github\\Katas\\BankAccount\\src\\Domain\\Domain.csproj"
             },
-            "D:\\GitHub - WorkFile\\Katas\\BankAccount\\src\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "D:\\GitHub - WorkFile\\Katas\\BankAccount\\src\\Infrastructure\\Infrastructure.csproj"
+            "E:\\BTS\\github\\Katas\\BankAccount\\src\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "E:\\BTS\\github\\Katas\\BankAccount\\src\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }
@@ -3479,7 +3478,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

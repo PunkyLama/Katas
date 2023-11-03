@@ -15,7 +15,7 @@
             TransactionHistory transaction;
             if (account == null)
             {
-                return default;
+                throw new Exception("Account not found");
             }
             if (amount <= 0)
             {
@@ -37,7 +37,7 @@
             var account = await _persistencePort.GetAccountByIdAsync(id);
             if (account == null)
             {
-                return default;
+                throw new Exception("Account not found");
             }
             return account.Balance;
         }
@@ -47,7 +47,7 @@
             var account = await _persistencePort.GetAccountByIdAsync(id);
             if (account == null)
             {
-                return default;
+                throw new Exception("Account not found");
             }
             return account.TransactionHistories;
         }
@@ -58,7 +58,7 @@
             TransactionHistory transaction;
             if (account == null)
             {
-                return default;
+                throw new Exception("Account not found");
             }
             if ((account.Balance - amount) < 0 || amount <= 0)
             {
