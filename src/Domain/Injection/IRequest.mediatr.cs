@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Domain.Injection
+﻿namespace Domain.Injection
 {
-    public interface IRequest<TReponse>
+    public interface IRequest<TResponse>
     {
     }
 }

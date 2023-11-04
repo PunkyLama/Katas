@@ -2,7 +2,7 @@
 
 namespace Infrastructure.Entities
 {
-    public enum TransactionStatusEntity
+    public enum StatementSatusEntity
     {
         [EnumMember(Value = "Approved")]
         Approved = 0,

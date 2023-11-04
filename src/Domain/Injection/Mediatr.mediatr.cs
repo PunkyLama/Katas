@@ -1,26 +1,22 @@
-﻿using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Concurrent;
 
 namespace Domain.Injection
 {
-    public class Mediatr: IMediatr
+    public class Mediatr : IMediatr
     {
         private readonly Func<Type, object> _serviceResolver;
         private readonly ConcurrentDictionary<Type, Type> _handlerDetails;
 
-        public Mediatr(Func<Type, object> serviceResolver, ConcurrentDictionary<Type, Type> handlerDetails)
+        public Mediatr(ConcurrentDictionary<Type, Type> handlerDetails, Func<Type, object> serviceResolver = null)
         {
-            _handlerDetails = handlerDetails;
             _serviceResolver = serviceResolver;
+            _handlerDetails = handlerDetails;
         }
 
         public async Task<TResponse> SendAsync<TResponse>(IRequest<TResponse> request)
         {
             var requestType = request.GetType();
+
             if (!_handlerDetails.ContainsKey(requestType))
             {
                 throw new InvalidOperationException($"No handler found for {requestType.Name}");
@@ -28,8 +24,10 @@ namespace Domain.Injection
 
             _handlerDetails.TryGetValue(requestType, out var requestHandlerType);
             var handler = _serviceResolver(requestHandlerType);
+            var handleAsyncMethod = handler.GetType().GetMethod("HandleAsync");
 
-            return await (Task<TResponse>)handler.GetType().GetMethod("HandleAsync").Invoke(handler, new []{ request });
+            return await (Task<TResponse>)handleAsyncMethod.Invoke(handler, new[] { request });
+
         }
-    }       
+    }
 }

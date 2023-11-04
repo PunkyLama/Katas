@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(DbContextBank))]
-    [Migration("20231023133918_initial")]
-    partial class initial
+    [Migration("20231103170853_intial")]
+    partial class intial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -53,7 +53,7 @@ namespace Infrastructure.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Infrastructure.Entities.TransactionHistoryEntity", b =>
+            modelBuilder.Entity("Infrastructure.Entities.StatementEntity", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -85,25 +85,7 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AccountId");
-
                     b.ToTable("TransactionHistories");
-                });
-
-            modelBuilder.Entity("Infrastructure.Entities.TransactionHistoryEntity", b =>
-                {
-                    b.HasOne("Infrastructure.Entities.AccountEntity", "Account")
-                        .WithMany("TransactionHistories")
-                        .HasForeignKey("AccountId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Account");
-                });
-
-            modelBuilder.Entity("Infrastructure.Entities.AccountEntity", b =>
-                {
-                    b.Navigation("TransactionHistories");
                 });
 #pragma warning restore 612, 618
         }

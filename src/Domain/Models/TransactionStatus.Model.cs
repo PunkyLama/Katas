@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Models
 {
-    public enum TransactionStatus
+    public enum StatementStatus
     {
         Approuved = 0,
         Rejected = 1

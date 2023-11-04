@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Queries
+namespace Domain.Commands
 {
-    public class Getbalance : IRequest<float>
+    public class StatementCommand: IRequest<ICollection<Statement>>
     {
         public int Id { get; set; }
+        public int Element { get; set; }
     }
 }

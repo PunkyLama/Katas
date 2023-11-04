@@ -10,11 +10,6 @@ namespace Infrastructure.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<AccountEntity>()
-                .HasMany(e => e.TransactionHistories) // AccountEntity has many TransactionHistory
-                .WithOne(e => e.Account) // TransactionHistory has one AccountEntity
-                .OnDelete(DeleteBehavior.Cascade); // Delete TransactionHistory when AccountEntity is deleted
-
             modelBuilder.Entity<AccountEntity>().HasData(
                 new AccountEntity
                 {
@@ -30,6 +25,6 @@ namespace Infrastructure.Context
         }
 
         public DbSet<AccountEntity> Accounts { get; set; }
-        public DbSet<TransactionHistoryEntity> TransactionHistories { get; set; }
+        public DbSet<StatementEntity> TransactionHistories { get; set; }
     }
 }

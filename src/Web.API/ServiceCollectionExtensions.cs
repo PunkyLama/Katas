@@ -7,7 +7,8 @@ using System.Collections.Concurrent;
 namespace Web.API
 {
     public static class ServiceCollectionExtensions
-    {
+    {      
+
         public static IServiceCollection AddMediator(
             this IServiceCollection services,
             ServiceLifetime lifetime,
@@ -27,7 +28,7 @@ namespace Web.API
                 services.TryAdd(serviceDescriptor);
             }
 
-            services.AddSingleton<IMediatr>(x => new Mediatr(x.GetRequiredService, handlerInfo));
+            services.AddScoped<IMediatr>(x => new Mediatr(handlerInfo, x.GetRequiredService));
 
             return services;
         }

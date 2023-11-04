@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Queries
+namespace Domain.Commands
 {
-    public class GetStatement : IRequest<TransactionHistory>
+    public class BalanceCommand : IRequest<float>
     {
         public int Id { get; set; }
     }
