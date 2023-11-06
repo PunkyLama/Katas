@@ -1,5 +1,6 @@
 ﻿using Domain.Commands;
 using Domain.Injection;
+using Domain.Models;
 
 namespace Domain.Handlers
 {
@@ -18,7 +19,7 @@ namespace Domain.Handlers
             if (transactions == null)
             {
                 throw new Exception("Account not found");
-            }
+            }          
             return transactions;
         }
     }

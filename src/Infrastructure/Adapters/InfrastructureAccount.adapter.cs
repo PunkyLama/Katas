@@ -1,4 +1,6 @@
-﻿using Domain.Models;
+﻿using Azure.Core;
+using Domain.Injection;
+using Domain.Models;
 using Domain.Ports.Driven;
 using Infrastructure.Context;
 using Infrastructure.Entities;
@@ -41,6 +43,10 @@ namespace Infrastructure.Adapters
 
             foreach (var transaction in transactions)
             {
+                if (transaction == null || transaction.AccountId != accountId)
+                {
+                    throw new Exception("Account not found");
+                }
                 domainTransaction.Add(_transactionMapper.MapFrom(transaction));
             }
             

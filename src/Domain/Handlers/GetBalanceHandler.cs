@@ -20,7 +20,7 @@ namespace Domain.Handlers
         public async Task<float> HandleAsync(BalanceCommand request)
         {
             var account = await _persistencePort.GetAccountByIdAsync(request.Id);
-            if (account == null)
+            if (account == null || account.Id != request.Id)
             {
                 throw new Exception("Account not found");
             }

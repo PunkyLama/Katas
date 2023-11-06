@@ -16,7 +16,7 @@ namespace Domain.Handlers
         {
             var account = await _persistencePort.GetAccountByIdAsync(request.Id);
             Statement transaction;
-            if (account == null)
+            if (account == null || account.Id != request.Id)
             {
                 throw new Exception("Account not found");
             }
