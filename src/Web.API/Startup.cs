@@ -12,6 +12,8 @@ using Web.API.Mapper;
 using Infrastructure.Mappers;
 using Domain.Commands;
 using Web.API.Models.Requests;
+using Domain.Queries;
+
 namespace Web.API
 {
     public class Startup
@@ -36,10 +38,16 @@ namespace Web.API
             services.AddScoped<IMapper<AccountResponse, Account>, AccountAPIMapper>();
             services.AddScoped<IMapper<StatementEntity, Statement>, StatementInfraMapper>();
             services.AddScoped<IMapper<StatementReponse, Statement>, StatementAPIMapper>();
-            services.AddScoped<IMapper<StatementRequest, StatementCommand>, StatementRequestMapper>();
-            services.AddScoped<IMapper<BalanceRequest, BalanceCommand>, BalanceRequestMapper>();
+            services.AddScoped<IMapper<StatementRequest, StatementQuery>, StatementRequestMapper>();
+            services.AddScoped<IMapper<BalanceRequest, BalanceQuery>, BalanceRequestMapper>();
             services.AddScoped<IMapper<DepositRequest, DepositCommand>, DepositRequestMapper>();
             services.AddScoped<IMapper<WithdrawRequest, WithdrawCommand>, WithdrawRequestMapper>();
+            services.AddScoped<AccountAPIMapper>();
+            services.AddScoped<StatementAPIMapper>();
+            services.AddScoped<DepositRequestMapper>();
+            services.AddScoped<StatementRequestMapper>();
+            services.AddScoped<BalanceRequestMapper>();
+            services.AddScoped<WithdrawRequestMapper>();
 
             //services.AddScoped<IAccountPort, DomainAccoutAdapter>();
             services.AddScoped<IAccountPersistencePort, InfrastructureAccountAdapter>();

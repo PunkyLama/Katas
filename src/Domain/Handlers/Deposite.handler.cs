@@ -22,7 +22,7 @@ namespace Domain.Handlers
             }
             if (request.Amount <= 0)
             {
-                transaction = new Statement(DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"), Operation.Deposit, StatementStatus.Rejected, request.Amount, account.Balance);
+                transaction = new Statement(DateTime.Now, Operation.Deposit, StatementStatus.Rejected, request.Amount, account.Balance);
                 await _persistencePort.Save(account, transaction);
                 throw new Exception("Amount must be greater than 0");
             }
@@ -30,7 +30,7 @@ namespace Domain.Handlers
             {
                 var oldBalance = account.Balance;
                 account.Balance += request.Amount;
-                transaction = new Statement(DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"), Operation.Deposit, StatementStatus.Approuved, request.Amount, oldBalance, account.Balance);
+                transaction = new Statement(DateTime.Now, Operation.Deposit, StatementStatus.Approuved, request.Amount, oldBalance, account.Balance);
             }
             await _persistencePort.Save(account, transaction);
             return account;

@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Commands
+namespace Domain.Queries
 {
-    public class StatementCommand: IRequest<ICollection<Statement>>
+    public class StatementQuery : IRequest<ICollection<Statement>>
     {
         public int Id { get; set; }
         public int Element { get; set; }

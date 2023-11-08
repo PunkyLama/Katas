@@ -22,9 +22,18 @@ namespace Web.API
         private readonly BalanceRequestMapper _balanceRequestMapper = new BalanceRequestMapper();
         private readonly WithdrawRequestMapper _withdrawRequestMapper = new WithdrawRequestMapper();
 
-        public Controller(IMediatr mediator)
+        public Controller(IMediatr mediator, AccountAPIMapper accountAPIMapper, 
+            StatementAPIMapper statementAPIMapper, DepositRequestMapper depositRequestMapper, 
+            StatementRequestMapper statementRequestMapper, BalanceRequestMapper balanceRequestMapper,
+            WithdrawRequestMapper withdrawRequestMapper)
         {
             _mediator = mediator;
+            _accountAPIMapper = accountAPIMapper;
+            _statementAPIMapper = statementAPIMapper;
+            _depositRequestMapper = depositRequestMapper;
+            _statementRequestMapper = statementRequestMapper;
+            _balanceRequestMapper = balanceRequestMapper;
+            _withdrawRequestMapper = withdrawRequestMapper;
         }
 
         [HttpPost("{id}/deposit")]

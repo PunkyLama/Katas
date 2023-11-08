@@ -13,7 +13,7 @@
         /// <param name="amount"> Amount of the transaction </param>
         /// <param name="oldBalance"> Old balance of the account </param>
         /// <param name="newBalance"> New balance of the account (Optional) </param>
-        public Statement(string dateTime, 
+        public Statement(DateTime dateTime, 
             Operation operation, StatementStatus statementStatus, 
             float amount, float oldBalance, float? newBalance = null) 
         {
@@ -28,7 +28,7 @@
         
         }
         public int Id { get; set; }
-        public string Date { get; set; }
+        public DateTime Date { get; set; }
         public Operation Operation { get; set; }
         public StatementStatus StatementStatus { get; set; }
         public string OperationString { get; set; }

@@ -1,10 +1,10 @@
-﻿using Domain.Commands;
-using Domain.Injection;
+﻿using Domain.Injection;
 using Domain.Models;
+using Domain.Queries;
 
 namespace Domain.Handlers
 {
-    public class GetStatementHandler : IHandler<StatementCommand, ICollection<Statement>>
+    public class GetStatementHandler : IHandler<StatementQuery, ICollection<Statement>>
     {
         private readonly IAccountPersistencePort _persistencePort;
 
@@ -13,7 +13,7 @@ namespace Domain.Handlers
             _persistencePort = persistencePort;
         }
 
-        public async Task<ICollection<Statement>> HandleAsync(StatementCommand request)
+        public async Task<ICollection<Statement>> HandleAsync(StatementQuery request)
         {
             var transactions = await _persistencePort.GetStatementsByAccountIdAsync(request.Id, request.Element);
             if (transactions == null)

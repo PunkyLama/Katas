@@ -28,13 +28,13 @@ namespace Domain.Handlers
             }
             if (request.Amount <= 0)
             {
-                transaction = new Statement(DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"), Operation.Withdraw, StatementStatus.Rejected, request.Amount, account.Balance);
+                transaction = new Statement(DateTime.Now, Operation.Withdraw, StatementStatus.Rejected, request.Amount, account.Balance);
                 await _persistencePort.Save(account, transaction);
                 throw new Exception("Amount must be greater than 0");
             }
             else if ((account.Balance - request.Amount) < 0)
             {
-                transaction = new Statement(DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"), Operation.Withdraw, StatementStatus.Rejected, request.Amount, account.Balance);
+                transaction = new Statement(DateTime.Now, Operation.Withdraw, StatementStatus.Rejected, request.Amount, account.Balance);
                 await _persistencePort.Save(account, transaction);
                 throw new Exception("Insufficient funds in the account");
             }
@@ -42,7 +42,7 @@ namespace Domain.Handlers
             {
                 var oldBalance = account.Balance;
                 account.Balance -= request.Amount;
-                transaction = new Statement(DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"), Operation.Withdraw, StatementStatus.Approuved, request.Amount, oldBalance, account.Balance);
+                transaction = new Statement(DateTime.Now, Operation.Withdraw, StatementStatus.Approuved, request.Amount, oldBalance, account.Balance);
             }
             await _persistencePort.Save(account, transaction);
             return account;

@@ -7,7 +7,7 @@ namespace Infrastructure.Entities
         public StatementEntity() { }
         [Key]
         public int Id { get; set; }
-        public string Date { get; set; }
+        public DateTime Date { get; set; }
         public OperationEntity Operation { get; set; }
         public StatementSatusEntity TransactionStatus { get; set; }
         public float Amount { get; set; }
