@@ -64,9 +64,8 @@ namespace Infrastructure.Migrations
                     b.Property<float>("Amount")
                         .HasColumnType("real");
 
-                    b.Property<string>("Date")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
 
                     b.Property<float?>("NewBalance")
                         .HasColumnType("real");

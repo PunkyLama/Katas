@@ -1,9 +1,9 @@
 ﻿using Domain.Injection;
 using Web.API.Models.Responses;
 
-namespace Web.API.Models.Requests
+namespace Web.API.Models.Dto
 {
-    public class StatementRequest : IRequest<StatementReponse>
+    public class StatementDto : IRequest<StatementReponse>
     {
         public int Id { get; set; }
         public int Element { get; set; }

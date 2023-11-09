@@ -1,24 +1,21 @@
-﻿using Azure.Core;
-using Domain.Injection;
-using Domain.Models;
-using Domain.Ports.Driven;
-using Infrastructure.Context;
+﻿using Infrastructure.Context;
 using Infrastructure.Entities;
-using Infrastructure.Mapper;
-using Infrastructure.Mappers;
 using Microsoft.EntityFrameworkCore;
-using System.Diagnostics;
+using AutoMapper;
+using Domain.Ports.Driven;
+using Domain.Models;
+using Domain.Exceptions;
 
 namespace Infrastructure.Adapters
 {
     public class InfrastructureAccountAdapter : IAccountPersistencePort
     {
         public readonly DbContextBank _dbContext;
-        private AccountInfraMapper _accountMapper = new AccountInfraMapper();
-        private StatementInfraMapper _transactionMapper = new StatementInfraMapper();
-        public InfrastructureAccountAdapter(DbContextBank dbContext)
+        private readonly IMapper _mapper;
+        public InfrastructureAccountAdapter(DbContextBank dbContext, IMapper mapper)
         {
             _dbContext = dbContext;
+            _mapper = mapper;
         }
 
         public async Task<Account> GetAccountByIdAsync(int id)
@@ -26,38 +23,37 @@ namespace Infrastructure.Adapters
             var account = await _dbContext.Accounts.Where(x => x.Id == id).FirstOrDefaultAsync();
             if (account == null)
             {
-                throw new Exception("Account not found");
+                throw new AccountNotFound(id);
             }
-            var domainAccount = _accountMapper.MapFrom(account);
-            return domainAccount;
+            return _mapper.Map<Account>(account);
         }
 
         public async Task<List<Statement>> GetStatementsByAccountIdAsync(int accountId, int elements)
         {
-            List<StatementEntity> transactions = await _dbContext.TransactionHistories.Where(x => x.AccountId == accountId).Skip(Math.Max(0, _dbContext.TransactionHistories.Count() - elements)).ToListAsync();
-            List<Statement> domainTransaction = new List<Statement>();
-            if (transactions == null)
+            List<StatementEntity> statementEntity = await _dbContext.TransactionHistories.Where(x => x.AccountId == accountId).OrderByDescending(c => c.Date).Take(elements).ToListAsync();
+            List<Statement> statements = new List<Statement>();
+            if (statementEntity == null)
             {
-                throw new Exception("Statements not found");
+                throw new AccountNotFound(accountId);
             }
 
-            foreach (var transaction in transactions)
+            foreach (var transaction in statementEntity)
             {
                 if (transaction == null || transaction.AccountId != accountId)
                 {
-                    throw new Exception("Account not found");
+                    throw new AccountNotFound(accountId);
                 }
-                domainTransaction.Add(_transactionMapper.MapFrom(transaction));
+                statements.Add(_mapper.Map<Statement>(transaction));
             }
             
-            return domainTransaction;
+            return statements;
         }
 
         public async Task Save(Account account, Statement? transaction)
         {
             if (account != null)
             {
-                var domainAccount = _accountMapper.MapTo(account);
+                var domainAccount = _mapper.Map<AccountEntity>(account);
                 var dbAccount = await _dbContext.Accounts.FirstOrDefaultAsync(x => x.Id == domainAccount.Id);
 
                 if (dbAccount == null)
@@ -74,7 +70,7 @@ namespace Infrastructure.Adapters
 
             if (transaction != null)
             {
-                var domainTransaction = _transactionMapper.MapTo(transaction);
+                var domainTransaction = _mapper.Map<StatementEntity>(transaction);
                 domainTransaction.AccountId = account.Id;
                 var dbTransaction = await _dbContext.TransactionHistories.FirstOrDefaultAsync(x => x.Id == domainTransaction.Id);
 

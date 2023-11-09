@@ -1,11 +1,6 @@
 ﻿using Domain.Commands;
+using Domain.Exceptions;
 using Domain.Injection;
-using Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Domain.Handlers
 {
@@ -21,28 +16,28 @@ namespace Domain.Handlers
         public async Task<Account> HandleAsync(WithdrawCommand request)
         {
             var account = await _persistencePort.GetAccountByIdAsync(request.Id);
-            Statement transaction;
+            Statement transaction = new Statement();
             if (account == null || account.Id != request.Id)
             {
-                throw new Exception("Account not found");
+                throw new AccountNotFound(account.Id);
             }
             if (request.Amount <= 0)
             {
-                transaction = new Statement(DateTime.Now, Operation.Withdraw, StatementStatus.Rejected, request.Amount, account.Balance);
+                transaction = transaction.CreateRejectedTransaction(Operation.Withdraw, request.Amount, account.Balance);
                 await _persistencePort.Save(account, transaction);
-                throw new Exception("Amount must be greater than 0");
+                throw new AmountMustBeGreaterThanZero(request.Amount);
             }
             else if ((account.Balance - request.Amount) < 0)
             {
-                transaction = new Statement(DateTime.Now, Operation.Withdraw, StatementStatus.Rejected, request.Amount, account.Balance);
+                transaction = transaction.CreateRejectedTransaction(Operation.Withdraw, request.Amount, account.Balance);
                 await _persistencePort.Save(account, transaction);
-                throw new Exception("Insufficient funds in the account");
+                throw new InsufficientFunds(account.Balance, request.Amount);
             }
             else
             {
                 var oldBalance = account.Balance;
                 account.Balance -= request.Amount;
-                transaction = new Statement(DateTime.Now, Operation.Withdraw, StatementStatus.Approuved, request.Amount, oldBalance, account.Balance);
+                transaction = transaction.CreateApprouvedTransaction(Operation.Withdraw, request.Amount, oldBalance, account.Balance);
             }
             await _persistencePort.Save(account, transaction);
             return account;

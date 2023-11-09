@@ -1,5 +1,5 @@
-﻿using Domain.Injection;
-using Domain.Models;
+﻿using Domain.Exceptions;
+using Domain.Injection;
 using Domain.Queries;
 
 namespace Domain.Handlers
@@ -18,7 +18,7 @@ namespace Domain.Handlers
             var transactions = await _persistencePort.GetStatementsByAccountIdAsync(request.Id, request.Element);
             if (transactions == null)
             {
-                throw new Exception("Account not found");
+                throw new AccountNotFound(request.Id);
             }          
             return transactions;
         }

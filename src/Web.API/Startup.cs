@@ -1,18 +1,11 @@
-using Domain.Mappers;
 using Domain.Models;
 using Domain.Ports.Driven;
 using Infrastructure.Adapters;
-using Infrastructure.Entities;
-using Infrastructure.Mapper;
 using Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
-using Web.API.Models.Responses;
-using Web.API.Mapper;
-using Infrastructure.Mappers;
-using Domain.Commands;
-using Web.API.Models.Requests;
-using Domain.Queries;
+using Infrastructure.Profiles;
+using Web.API.Profiles;
 
 namespace Web.API
 {
@@ -33,21 +26,7 @@ namespace Web.API
             });
 
             services.AddScoped<DbContextBank>();
-
-            services.AddScoped<IMapper<AccountEntity, Account>, AccountInfraMapper>();
-            services.AddScoped<IMapper<AccountResponse, Account>, AccountAPIMapper>();
-            services.AddScoped<IMapper<StatementEntity, Statement>, StatementInfraMapper>();
-            services.AddScoped<IMapper<StatementReponse, Statement>, StatementAPIMapper>();
-            services.AddScoped<IMapper<StatementRequest, StatementQuery>, StatementRequestMapper>();
-            services.AddScoped<IMapper<BalanceRequest, BalanceQuery>, BalanceRequestMapper>();
-            services.AddScoped<IMapper<DepositRequest, DepositCommand>, DepositRequestMapper>();
-            services.AddScoped<IMapper<WithdrawRequest, WithdrawCommand>, WithdrawRequestMapper>();
-            services.AddScoped<AccountAPIMapper>();
-            services.AddScoped<StatementAPIMapper>();
-            services.AddScoped<DepositRequestMapper>();
-            services.AddScoped<StatementRequestMapper>();
-            services.AddScoped<BalanceRequestMapper>();
-            services.AddScoped<WithdrawRequestMapper>();
+            services.AddAutoMapper(typeof(AccountEntityProfile), typeof(AccountResponseProfile));
 
             //services.AddScoped<IAccountPort, DomainAccoutAdapter>();
             services.AddScoped<IAccountPersistencePort, InfrastructureAccountAdapter>();

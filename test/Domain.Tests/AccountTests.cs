@@ -30,7 +30,7 @@ namespace Domain.Tests
             var accountId = 0;
             var amountToDeposit = 50;
 
-            var persistencePortMock = new Mock<IAccountPersistencePort>();
+            var persistencePortMock = new Mock<IAccountPersistencePort<Account, Statement>>();
             persistencePortMock.Setup(p => p.GetAccountByIdAsync(accountId)).ReturnsAsync(account);
 
             var handler = new DepositeHandler(persistencePortMock.Object);
@@ -52,7 +52,7 @@ namespace Domain.Tests
             var accountId = account.Id;
             var amountToDeposit = 50;
 
-            var persistencePortMock = new Mock<IAccountPersistencePort>();
+            var persistencePortMock = new Mock<IAccountPersistencePort<Account, Statement>>();
             persistencePortMock.Setup(p => p.GetAccountByIdAsync(accountId)).ReturnsAsync(account);
 
             var handler = new DepositeHandler(persistencePortMock.Object);
@@ -74,7 +74,7 @@ namespace Domain.Tests
             var accountId = account.Id;
             var amountToDeposit = -50;
 
-            var persistencePortMock = new Mock<IAccountPersistencePort>();
+            var persistencePortMock = new Mock<IAccountPersistencePort<Account, Statement>>();
             persistencePortMock.Setup(p => p.GetAccountByIdAsync(accountId)).ReturnsAsync(account);
 
             var handler = new DepositeHandler(persistencePortMock.Object);
@@ -95,7 +95,7 @@ namespace Domain.Tests
             var accountId = 0;
             var amountToDeposit = 50;
 
-            var persistencePortMock = new Mock<IAccountPersistencePort>();
+            var persistencePortMock = new Mock<IAccountPersistencePort<Account, Statement>>();
             persistencePortMock.Setup(p => p.GetAccountByIdAsync(accountId)).ReturnsAsync(account);
 
             var handler = new WithdrawHandler(persistencePortMock.Object);
@@ -117,7 +117,7 @@ namespace Domain.Tests
             var accountId = account.Id;
             var amountToWithdraw = 50;
 
-            var persistencePortMock = new Mock<IAccountPersistencePort>();
+            var persistencePortMock = new Mock<IAccountPersistencePort<Account, Statement>>();
             persistencePortMock.Setup(p => p.GetAccountByIdAsync(accountId)).ReturnsAsync(account);
 
             var handler = new WithdrawHandler(persistencePortMock.Object);
@@ -138,7 +138,7 @@ namespace Domain.Tests
             var accountId = account.Id;
             var amountToWithdraw = 200;
 
-            var persistencePortMock = new Mock<IAccountPersistencePort>();
+            var persistencePortMock = new Mock<IAccountPersistencePort<Account, Statement>>();
             persistencePortMock.Setup(p => p.GetAccountByIdAsync(accountId)).ReturnsAsync(account);
 
             var handler = new WithdrawHandler(persistencePortMock.Object);
@@ -158,7 +158,7 @@ namespace Domain.Tests
             var account = InitializeAccount();
             var accountId = account.Id;
 
-            var persistencePortMock = new Mock<IAccountPersistencePort>();
+            var persistencePortMock = new Mock<IAccountPersistencePort<Account, Statement>>();
             persistencePortMock.Setup(p => p.GetAccountByIdAsync(accountId)).ReturnsAsync(account);
 
             var handler = new GetBalanceHandler(persistencePortMock.Object);
@@ -178,7 +178,7 @@ namespace Domain.Tests
             var account = InitializeAccount();
             var accountId = 0;
 
-            var persistencePortMock = new Mock<IAccountPersistencePort>();
+            var persistencePortMock = new Mock<IAccountPersistencePort<Account, Statement>>();
             persistencePortMock.Setup(p => p.GetAccountByIdAsync(accountId)).ReturnsAsync(account);
 
             var handler = new GetBalanceHandler(persistencePortMock.Object);

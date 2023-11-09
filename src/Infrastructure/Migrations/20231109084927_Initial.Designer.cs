@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(DbContextBank))]
-    [Migration("20231103170853_intial")]
-    partial class intial
+    [Migration("20231109084927_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -67,9 +67,8 @@ namespace Infrastructure.Migrations
                     b.Property<float>("Amount")
                         .HasColumnType("real");
 
-                    b.Property<string>("Date")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
 
                     b.Property<float?>("NewBalance")
                         .HasColumnType("real");

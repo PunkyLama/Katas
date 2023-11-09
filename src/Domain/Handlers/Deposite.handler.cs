@@ -1,4 +1,5 @@
 ﻿using Domain.Commands;
+using Domain.Exceptions;
 using Domain.Injection;
 
 namespace Domain.Handlers
@@ -14,23 +15,23 @@ namespace Domain.Handlers
 
         public async Task<Account> HandleAsync(DepositCommand request)
         {
-            var account = await _persistencePort.GetAccountByIdAsync(request.Id);
-            Statement transaction;
+            Account account = await _persistencePort.GetAccountByIdAsync(request.Id);
+            Statement transaction = new Statement();
             if (account == null || account.Id != request.Id)
             {
-                throw new Exception("Account not found");
+                throw new AccountNotFound(account.Id);
             }
             if (request.Amount <= 0)
             {
-                transaction = new Statement(DateTime.Now, Operation.Deposit, StatementStatus.Rejected, request.Amount, account.Balance);
+                transaction = transaction.CreateRejectedTransaction(Operation.Deposit, request.Amount, account.Balance);
                 await _persistencePort.Save(account, transaction);
-                throw new Exception("Amount must be greater than 0");
+                throw new AmountMustBeGreaterThanZero(request.Amount);
             }
             else
             {
                 var oldBalance = account.Balance;
                 account.Balance += request.Amount;
-                transaction = new Statement(DateTime.Now, Operation.Deposit, StatementStatus.Approuved, request.Amount, oldBalance, account.Balance);
+                transaction = transaction.CreateApprouvedTransaction(Operation.Deposit, request.Amount, oldBalance, account.Balance);
             }
             await _persistencePort.Save(account, transaction);
             return account;

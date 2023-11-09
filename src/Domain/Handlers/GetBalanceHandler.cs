@@ -1,10 +1,6 @@
-﻿using Domain.Injection;
+﻿using Domain.Exceptions;
+using Domain.Injection;
 using Domain.Queries;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Domain.Handlers
 {
@@ -22,7 +18,7 @@ namespace Domain.Handlers
             var account = await _persistencePort.GetAccountByIdAsync(request.Id);
             if (account == null || account.Id != request.Id)
             {
-                throw new Exception("Account not found");
+                throw new AccountNotFound(account.Id);
             }
             return account.Balance;
         }

@@ -1,11 +1,11 @@
-﻿using Domain.Commands;
+﻿using AutoMapper;
+using Domain.Commands;
 using Domain.Injection;
 using Domain.Models;
-using Domain.Ports.Driving;
+using Domain.Queries;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
-using Web.API.Mapper;
-using Web.API.Models.Requests;
+using Web.API.Models.Dto;
 using Web.API.Models.Responses;
 
 namespace Web.API
@@ -15,25 +15,12 @@ namespace Web.API
     public class Controller : ControllerBase
     {
         private readonly IMediatr _mediator;
-        private readonly AccountAPIMapper _accountAPIMapper = new AccountAPIMapper();
-        private readonly StatementAPIMapper _statementAPIMapper = new StatementAPIMapper();
-        private readonly DepositRequestMapper _depositRequestMapper = new DepositRequestMapper();
-        private readonly StatementRequestMapper _statementRequestMapper = new StatementRequestMapper();
-        private readonly BalanceRequestMapper _balanceRequestMapper = new BalanceRequestMapper();
-        private readonly WithdrawRequestMapper _withdrawRequestMapper = new WithdrawRequestMapper();
+        private readonly IMapper _mapper;
 
-        public Controller(IMediatr mediator, AccountAPIMapper accountAPIMapper, 
-            StatementAPIMapper statementAPIMapper, DepositRequestMapper depositRequestMapper, 
-            StatementRequestMapper statementRequestMapper, BalanceRequestMapper balanceRequestMapper,
-            WithdrawRequestMapper withdrawRequestMapper)
+        public Controller(IMediatr mediator, IMapper mapper)
         {
             _mediator = mediator;
-            _accountAPIMapper = accountAPIMapper;
-            _statementAPIMapper = statementAPIMapper;
-            _depositRequestMapper = depositRequestMapper;
-            _statementRequestMapper = statementRequestMapper;
-            _balanceRequestMapper = balanceRequestMapper;
-            _withdrawRequestMapper = withdrawRequestMapper;
+            _mapper = mapper;
         }
 
         [HttpPost("{id}/deposit")]
@@ -41,14 +28,14 @@ namespace Web.API
         {
             try
             {
-                var request = new DepositRequest
+                var request = new DepositDto
                 {
                     Id = id,
                     Amount = amount
                 };
-                var command = _depositRequestMapper.MapFrom(request);
+                var command = _mapper.Map<DepositCommand>(request);
                 var account = await _mediator.SendAsync(command);
-                var result = _accountAPIMapper.MapTo(account);
+                var result = _mapper.Map<AccountResponse>(account);
 
                 if (result == null)
                 {
@@ -69,16 +56,16 @@ namespace Web.API
             try
             {
                 var result = new List<StatementReponse>();
-                var request = new StatementRequest
+                var request = new StatementDto
                 {
                     Id = id,
                     Element = element
                 };
-                var command = _statementRequestMapper.MapFrom(request);
+                var command = _mapper.Map<StatementQuery>(request);
                 var transactions = await _mediator.SendAsync(command);
                 foreach (var transaction in transactions)
                 {
-                    result.Add(_statementAPIMapper.MapTo(transaction));
+                    result.Add(_mapper.Map<StatementReponse>(transaction));
                 }
 
                 if (result == null)
@@ -99,11 +86,11 @@ namespace Web.API
         {
             try
             {
-                var request = new BalanceRequest
+                var request = new BalanceDto
                 {
                     Id = id
                 };
-                var command = _balanceRequestMapper.MapFrom(request);
+                var command = _mapper.Map<BalanceQuery>(request);
                 var balance = await _mediator.SendAsync(command);
 
                 if (balance == null)
@@ -124,14 +111,14 @@ namespace Web.API
         {
             try
             {
-                var request = new WithdrawRequest
+                var request = new WithdrawDto
                 {
                     Id = id,
                     Amount = amount
                 };
-                var command = _withdrawRequestMapper.MapFrom(request);
+                var command = _mapper.Map<WithdrawCommand>(request);
                 var account = await _mediator.SendAsync(command);
-                var result = _accountAPIMapper.MapTo(account);
+                var result = _mapper.Map<AccountResponse>(account);
 
                 if (result == null)
                 {
