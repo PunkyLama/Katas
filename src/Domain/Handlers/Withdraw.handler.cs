@@ -19,7 +19,7 @@ namespace Domain.Handlers
             Statement transaction = new Statement();
             if (account == null || account.Id != request.Id)
             {
-                throw new AccountNotFound(account.Id);
+                throw new AccountNotFound(request.Id);
             }
             if (request.Amount <= 0)
             {
@@ -31,7 +31,7 @@ namespace Domain.Handlers
             {
                 transaction = transaction.CreateRejectedTransaction(Operation.Withdraw, request.Amount, account.Balance);
                 await _persistencePort.Save(account, transaction);
-                throw new InsufficientFunds(account.Balance, request.Amount);
+                throw new InsufficientFunds(request.Amount, account.Balance);
             }
             else
             {

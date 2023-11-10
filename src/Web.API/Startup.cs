@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 using Infrastructure.Profiles;
 using Web.API.Profiles;
+using Infrastructure.Respositories;
 
 namespace Web.API
 {
@@ -28,8 +29,7 @@ namespace Web.API
             services.AddScoped<DbContextBank>();
             services.AddAutoMapper(typeof(AccountEntityProfile), typeof(AccountResponseProfile));
 
-            //services.AddScoped<IAccountPort, DomainAccoutAdapter>();
-            services.AddScoped<IAccountPersistencePort, InfrastructureAccountAdapter>();
+            services.AddScoped<IAccountPersistencePort, SQLAccountAdapter>();
 
             //services.AddRazorPages();
             services.AddAuthorization();

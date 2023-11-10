@@ -1,4 +1,5 @@
 ﻿using Domain.Commands;
+using Domain.Exceptions;
 using Domain.Handlers;
 using Domain.Models;
 using Domain.Ports.Driven;
@@ -27,20 +28,20 @@ namespace Domain.Tests
         {
             // Arrange
             var account = InitializeAccount();
-            var accountId = 0;
+            var invalidAccountId = 0;
             var amountToDeposit = 50;
 
-            var persistencePortMock = new Mock<IAccountPersistencePort<Account, Statement>>();
-            persistencePortMock.Setup(p => p.GetAccountByIdAsync(accountId)).ReturnsAsync(account);
+            var persistencePortMock = new Mock<IAccountPersistencePort>();
+            persistencePortMock.Setup(p => p.GetAccountByIdAsync(invalidAccountId)).ReturnsAsync(account);
 
             var handler = new DepositeHandler(persistencePortMock.Object);
-            var request = new DepositCommand { Id = accountId, Amount = amountToDeposit };
+            var request = new DepositCommand { Id = invalidAccountId, Amount = amountToDeposit };
 
             // Act
-            var result = Assert.ThrowsAsync<Exception>(async () => await handler.HandleAsync(request));
+            var exception = await Assert.ThrowsAsync<AccountNotFound>(async () => await handler.HandleAsync(request));
 
             // Assert
-            Assert.Equal("Account not found", result.Result.Message); // Le solde attendu après le dépôt
+            Assert.Equal($"Account with id {invalidAccountId} not found.", exception.Message);
 
         }
 
@@ -52,7 +53,7 @@ namespace Domain.Tests
             var accountId = account.Id;
             var amountToDeposit = 50;
 
-            var persistencePortMock = new Mock<IAccountPersistencePort<Account, Statement>>();
+            var persistencePortMock = new Mock<IAccountPersistencePort>();
             persistencePortMock.Setup(p => p.GetAccountByIdAsync(accountId)).ReturnsAsync(account);
 
             var handler = new DepositeHandler(persistencePortMock.Object);
@@ -74,17 +75,17 @@ namespace Domain.Tests
             var accountId = account.Id;
             var amountToDeposit = -50;
 
-            var persistencePortMock = new Mock<IAccountPersistencePort<Account, Statement>>();
+            var persistencePortMock = new Mock<IAccountPersistencePort>();
             persistencePortMock.Setup(p => p.GetAccountByIdAsync(accountId)).ReturnsAsync(account);
 
             var handler = new DepositeHandler(persistencePortMock.Object);
             var request = new DepositCommand { Id = accountId, Amount = amountToDeposit };
 
             // Act & Assert
-            var result = Assert.ThrowsAsync<Exception>(async () => await handler.HandleAsync(request));
+            var exception = await Assert.ThrowsAsync<AmountMustBeGreaterThanZero>(async () => await handler.HandleAsync(request));
 
             // Assert
-            Assert.Equal("Amount must be greater than 0", result.Result.Message);
+            Assert.Equal($"Amount {amountToDeposit} must be greater than zero.", exception.Message);
         }
 
         [Fact]
@@ -92,20 +93,20 @@ namespace Domain.Tests
         {
             // Arrange
             var account = InitializeAccount();
-            var accountId = 0;
+            var invalidAccountId = 0;
             var amountToDeposit = 50;
 
-            var persistencePortMock = new Mock<IAccountPersistencePort<Account, Statement>>();
-            persistencePortMock.Setup(p => p.GetAccountByIdAsync(accountId)).ReturnsAsync(account);
+            var persistencePortMock = new Mock<IAccountPersistencePort>();
+            persistencePortMock.Setup(p => p.GetAccountByIdAsync(invalidAccountId)).ReturnsAsync(account);
 
             var handler = new WithdrawHandler(persistencePortMock.Object);
-            var request = new WithdrawCommand { Id = accountId, Amount = amountToDeposit };
+            var request = new WithdrawCommand { Id = invalidAccountId, Amount = amountToDeposit };
 
             // Act & Assert
-            var result = Assert.ThrowsAsync<Exception>(async () => await handler.HandleAsync(request));
+            var exception = await Assert.ThrowsAsync<AccountNotFound>(async () => await handler.HandleAsync(request));
 
             // Assert
-            Assert.Equal("Account not found", result.Result.Message);
+            Assert.Equal($"Account with id {invalidAccountId} not found.", exception.Message);
 
         }
 
@@ -117,7 +118,7 @@ namespace Domain.Tests
             var accountId = account.Id;
             var amountToWithdraw = 50;
 
-            var persistencePortMock = new Mock<IAccountPersistencePort<Account, Statement>>();
+            var persistencePortMock = new Mock<IAccountPersistencePort>();
             persistencePortMock.Setup(p => p.GetAccountByIdAsync(accountId)).ReturnsAsync(account);
 
             var handler = new WithdrawHandler(persistencePortMock.Object);
@@ -138,17 +139,17 @@ namespace Domain.Tests
             var accountId = account.Id;
             var amountToWithdraw = 200;
 
-            var persistencePortMock = new Mock<IAccountPersistencePort<Account, Statement>>();
+            var persistencePortMock = new Mock<IAccountPersistencePort>();
             persistencePortMock.Setup(p => p.GetAccountByIdAsync(accountId)).ReturnsAsync(account);
 
             var handler = new WithdrawHandler(persistencePortMock.Object);
             var request = new WithdrawCommand { Id = accountId, Amount = amountToWithdraw };
 
             // Act & Assert
-            var result = Assert.ThrowsAsync<Exception>(async() => await handler.HandleAsync(request));
+            var exception = await Assert.ThrowsAsync<InsufficientFunds>(async() => await handler.HandleAsync(request));
 
             // Assert
-            Assert.Equal("Insufficient funds in the account", result.Result.Message);
+            Assert.Equal($"Insufficient funds, balance : {account.Balance}, amount : {amountToWithdraw}.", exception.Message);
         }
 
         [Fact]
@@ -158,7 +159,7 @@ namespace Domain.Tests
             var account = InitializeAccount();
             var accountId = account.Id;
 
-            var persistencePortMock = new Mock<IAccountPersistencePort<Account, Statement>>();
+            var persistencePortMock = new Mock<IAccountPersistencePort>();
             persistencePortMock.Setup(p => p.GetAccountByIdAsync(accountId)).ReturnsAsync(account);
 
             var handler = new GetBalanceHandler(persistencePortMock.Object);
@@ -176,19 +177,19 @@ namespace Domain.Tests
         {
             // Arrange
             var account = InitializeAccount();
-            var accountId = 0;
+            var invalidAccountId = 0;
 
-            var persistencePortMock = new Mock<IAccountPersistencePort<Account, Statement>>();
-            persistencePortMock.Setup(p => p.GetAccountByIdAsync(accountId)).ReturnsAsync(account);
+            var persistencePortMock = new Mock<IAccountPersistencePort>();
+            persistencePortMock.Setup(p => p.GetAccountByIdAsync(invalidAccountId)).ReturnsAsync(account);
 
             var handler = new GetBalanceHandler(persistencePortMock.Object);
-            var request = new BalanceQuery { Id = accountId };
+            var request = new BalanceQuery { Id = invalidAccountId };
 
             // Act & Assert
-            var result = Assert.ThrowsAsync<Exception>(async () => await handler.HandleAsync(request));
+            var exception = await Assert.ThrowsAsync<AccountNotFound>(async () => await handler.HandleAsync(request));
 
             // Assert
-            Assert.Equal("Account not found", result.Result.Message);
+            Assert.Equal($"Account with id {invalidAccountId} not found.", exception.Message);
         }
     }
 }

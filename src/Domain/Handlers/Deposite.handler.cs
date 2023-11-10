@@ -19,7 +19,7 @@ namespace Domain.Handlers
             Statement transaction = new Statement();
             if (account == null || account.Id != request.Id)
             {
-                throw new AccountNotFound(account.Id);
+                throw new AccountNotFound(request.Id);
             }
             if (request.Amount <= 0)
             {

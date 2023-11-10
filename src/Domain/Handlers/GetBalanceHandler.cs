@@ -18,7 +18,7 @@ namespace Domain.Handlers
             var account = await _persistencePort.GetAccountByIdAsync(request.Id);
             if (account == null || account.Id != request.Id)
             {
-                throw new AccountNotFound(account.Id);
+                throw new AccountNotFound(request.Id);
             }
             return account.Balance;
         }
