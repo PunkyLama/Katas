@@ -31,19 +31,6 @@ Exposition des différentes fonctionnalités sur une API REST _(ex: Java -> Spri
 Implémentation d'un adapteur de persistence de votre choix _(ex: SQLlite, H2, ...)_.
 
 
-## ⚠️ Modalités de candidatures ⚠️
-
->Le kata a volontairement un scope très large : il a vocation à être affiné tout au long de votre montée en compétence chez Exalt. Pour une candidature cependant, concentrez-vous sur **l’implémentation d’un domaine métier complet**, testé, et accessible depuis **une API Rest ou une interface graphique**.
-
-> **Pour le rendu, Poussez sur une branche git, ouvrez une merge request vers Main, et notifiez votre interlocuteur par message que le kata est fini.**
-
-## Bonne chance !
-
-
-![archi-hexa](./assets/hexa-schema.png)
-
-
-
 ___
 
 
